@@ -10,10 +10,11 @@ lerna-debug.log*
 node_modules
 dist-ssr
 *.local
-# dist/ is deliberately tracked, not ignored -- see the root .gitignore's
-# note and docs/cpanel-deployment.md. It's SSR builds (dist-ssr) that stay
-# ignored here; this project doesn't use SSR at all, kept only in case a
-# future `vite build --ssr` run produces one.
+# dist/ is deliberately tracked, not ignored -- see epk-back's
+# docs/cpanel-deployment.md (committing the build lets the deploy target
+# `git pull` this repo directly, no Node.js needed on the server). It's SSR
+# builds (dist-ssr) that stay ignored here; this project doesn't use SSR at
+# all, kept only in case a future `vite build --ssr` run produces one.
 
 # Editor directories and files
 .vscode/*
