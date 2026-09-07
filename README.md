@@ -1,6 +1,6 @@
-# KORAX — Web app (epk-front)
+# KORAXX — Web app (epk-front)
 
-The React SPA for [KORAX](https://github.com/iheblhbib/epk-back), an Electronic Press Kit (EPK) SaaS platform — build, theme, and share professional press kits for artists, labels, and agencies. Builds to 100% static files; **no Node.js runtime needed in production**, only a static file host.
+The React SPA for [KORAXX](https://github.com/iheblhbib/epk-back), an Electronic Press Kit (EPK) SaaS platform — build, theme, and share professional press kits for artists, labels, and agencies. Builds to 100% static files; **no Node.js runtime needed in production**, only a static file host.
 
 > **This repo used to be the `frontend/` folder of a single monorepo.** It's now split into two independent repos: this one (the SPA) and [`epk-back`](https://github.com/iheblhbib/epk-back) (the Laravel API this app talks to). Full architecture and deployment docs — including how the two repos deploy together onto two cPanel subdomains — live in `epk-back`'s [docs/architecture.md](https://github.com/iheblhbib/epk-back/blob/main/docs/architecture.md) and [docs/cpanel-deployment.md](https://github.com/iheblhbib/epk-back/blob/main/docs/cpanel-deployment.md).
 
