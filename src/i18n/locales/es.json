@@ -57,7 +57,29 @@
       "pageViews30d": "Vistas de página (30d)",
       "contacts": "Contactos",
       "mediaFiles": "Archivos multimedia",
-      "storageUsed": "Almacenamiento usado"
+      "storageUsed": "Almacenamiento usado",
+      "error": "No se pudieron cargar los datos del panel.",
+      "billing": {
+        "mrr": "Ingresos recurrentes mensuales",
+        "activeByPlan": "Suscriptores activos por plan",
+        "trialConversionRate": "Conversión de prueba a pago",
+        "canceledLast30Days": "Cancelados (30d)",
+        "byStatus": "Suscripciones por estado",
+        "byStatusEmpty": "Aún no hay suscripciones."
+      },
+      "growth": {
+        "title": "Crecimiento",
+        "newUsers": "Nuevos usuarios",
+        "newWorkspaces": "Nuevos espacios de trabajo",
+        "empty": "Aún no hay datos de crecimiento."
+      },
+      "activity": {
+        "title": "Actividad reciente",
+        "empty": "Aún no hay actividad reciente.",
+        "error": "No se pudo cargar la actividad reciente.",
+        "signedUp": "{{name}} se registró",
+        "workspaceCreated": "{{creator}} creó \"{{name}}\""
+      }
     },
     "pagination": {
       "total": "{{count}} en total",
@@ -104,8 +126,17 @@
         "members": "Miembros",
         "epks": "EPK",
         "plan": "Plan",
+        "subscriptionStatus": "Estado",
         "created": "Creado"
-      }
+      },
+      "statusLabels": {
+        "trialing": "En prueba",
+        "active": "Activo",
+        "past_due": "Vencido",
+        "unpaid": "Impagado",
+        "canceled": "Cancelado"
+      },
+      "accessEndsAt": "El acceso finaliza el {{date}}"
     },
     "epks": {
       "title": "EPK",

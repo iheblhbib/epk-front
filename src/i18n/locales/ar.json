@@ -57,7 +57,29 @@
       "pageViews30d": "مشاهدات الصفحة (30 يومًا)",
       "contacts": "جهات الاتصال",
       "mediaFiles": "ملفات الوسائط",
-      "storageUsed": "التخزين المستخدم"
+      "storageUsed": "التخزين المستخدم",
+      "error": "تعذر تحميل بيانات لوحة التحكم.",
+      "billing": {
+        "mrr": "الإيراد الشهري المتكرر",
+        "activeByPlan": "المشتركون النشطون حسب الخطة",
+        "trialConversionRate": "تحويل التجربة إلى مدفوع",
+        "canceledLast30Days": "ملغى (30 يومًا)",
+        "byStatus": "الاشتراكات حسب الحالة",
+        "byStatusEmpty": "لا توجد اشتراكات بعد."
+      },
+      "growth": {
+        "title": "النمو",
+        "newUsers": "مستخدمون جدد",
+        "newWorkspaces": "مساحات عمل جديدة",
+        "empty": "لا توجد بيانات نمو بعد."
+      },
+      "activity": {
+        "title": "النشاط الأخير",
+        "empty": "لا يوجد نشاط حديث بعد.",
+        "error": "تعذر تحميل النشاط الأخير.",
+        "signedUp": "انضم {{name}}",
+        "workspaceCreated": "أنشأ {{creator}} \"{{name}}\""
+      }
     },
     "pagination": {
       "total": "{{count}} إجمالًا",
@@ -104,8 +126,17 @@
         "members": "الأعضاء",
         "epks": "الملفات الصحفية",
         "plan": "الخطة",
+        "subscriptionStatus": "الحالة",
         "created": "تاريخ الإنشاء"
-      }
+      },
+      "statusLabels": {
+        "trialing": "تجريبي",
+        "active": "نشط",
+        "past_due": "متأخر السداد",
+        "unpaid": "غير مدفوع",
+        "canceled": "ملغى"
+      },
+      "accessEndsAt": "ينتهي الوصول في {{date}}"
     },
     "epks": {
       "title": "الملفات الصحفية",

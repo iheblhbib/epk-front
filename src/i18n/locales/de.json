@@ -57,7 +57,29 @@
       "pageViews30d": "Seitenaufrufe (30T)",
       "contacts": "Kontakte",
       "mediaFiles": "Mediendateien",
-      "storageUsed": "Genutzter Speicher"
+      "storageUsed": "Genutzter Speicher",
+      "error": "Dashboard-Daten konnten nicht geladen werden.",
+      "billing": {
+        "mrr": "Monatlich wiederkehrender Umsatz",
+        "activeByPlan": "Aktive Abonnenten nach Tarif",
+        "trialConversionRate": "Testphase-zu-Bezahlt-Konversion",
+        "canceledLast30Days": "Gekündigt (30T)",
+        "byStatus": "Abonnements nach Status",
+        "byStatusEmpty": "Noch keine Abonnements."
+      },
+      "growth": {
+        "title": "Wachstum",
+        "newUsers": "Neue Nutzer",
+        "newWorkspaces": "Neue Arbeitsbereiche",
+        "empty": "Noch keine Wachstumsdaten."
+      },
+      "activity": {
+        "title": "Letzte Aktivität",
+        "empty": "Noch keine Aktivität.",
+        "error": "Konnte die letzte Aktivität nicht laden.",
+        "signedUp": "{{name}} hat sich registriert",
+        "workspaceCreated": "{{creator}} hat \"{{name}}\" erstellt"
+      }
     },
     "pagination": {
       "total": "{{count}} insgesamt",
@@ -104,8 +126,17 @@
         "members": "Mitglieder",
         "epks": "EPKs",
         "plan": "Tarif",
+        "subscriptionStatus": "Status",
         "created": "Erstellt"
-      }
+      },
+      "statusLabels": {
+        "trialing": "Testphase",
+        "active": "Aktiv",
+        "past_due": "Überfällig",
+        "unpaid": "Unbezahlt",
+        "canceled": "Gekündigt"
+      },
+      "accessEndsAt": "Zugriff endet am {{date}}"
     },
     "epks": {
       "title": "EPKs",
