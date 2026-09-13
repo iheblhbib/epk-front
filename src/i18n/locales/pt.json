@@ -450,7 +450,12 @@
       "name": "Nome",
       "email": "E-mail",
       "updated": "Perfil atualizado",
-      "updateError": "Não foi possível atualizar o seu perfil"
+      "updateError": "Não foi possível atualizar o seu perfil",
+      "avatarUpload": "Enviar foto",
+      "avatarChange": "Alterar foto",
+      "avatarRemove": "Remover",
+      "avatarInvalidFile": "Escolha uma imagem com menos de 5MB.",
+      "avatarUpdateError": "Não foi possível atualizar sua foto"
     },
     "language": {
       "title": "Idioma",
@@ -471,7 +476,12 @@
       "description": "Atualize o nome e a descrição de {{workspace}}.",
       "descriptionField": "Descrição",
       "updated": "Espaço de trabalho atualizado",
-      "updateError": "Não foi possível atualizar o espaço de trabalho"
+      "updateError": "Não foi possível atualizar o espaço de trabalho",
+      "logoUpload": "Enviar logo",
+      "logoChange": "Alterar logo",
+      "logoRemove": "Remover",
+      "logoInvalidFile": "Escolha uma imagem com menos de 5MB.",
+      "logoUpdateError": "Não foi possível atualizar o logo do espaço de trabalho"
     },
     "dangerZone": {
       "title": "Zona de perigo",

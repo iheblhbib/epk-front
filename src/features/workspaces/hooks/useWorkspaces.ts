@@ -4,6 +4,7 @@ import {
   createWorkspace,
   declineInvitation,
   deleteWorkspace,
+  deleteWorkspaceLogo,
   inviteWorkspaceMember,
   leaveWorkspace,
   listPendingInvitations,
@@ -16,6 +17,7 @@ import {
   removeWorkspaceMember,
   updateWorkspace,
   updateWorkspaceMemberRole,
+  uploadWorkspaceLogo,
 } from '@/api/workspaces'
 import { authUserKey } from '@/lib/queryClient'
 import type { WorkspaceRole } from '@/types'
@@ -41,6 +43,24 @@ export function useUpdateWorkspace(workspaceId: number) {
 
   return useMutation({
     mutationFn: (payload: { name?: string; description?: string }) => updateWorkspace(workspaceId, payload),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: workspacesKey }),
+  })
+}
+
+export function useUploadWorkspaceLogo(workspaceId: number) {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: (file: File) => uploadWorkspaceLogo(workspaceId, file),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: workspacesKey }),
+  })
+}
+
+export function useDeleteWorkspaceLogo(workspaceId: number) {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: () => deleteWorkspaceLogo(workspaceId),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: workspacesKey }),
   })
 }

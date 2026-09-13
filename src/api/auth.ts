@@ -117,6 +117,20 @@ export async function updateLocale(locale: string): Promise<User> {
   return data.data
 }
 
+export async function uploadAvatar(file: File): Promise<User> {
+  const formData = new FormData()
+  formData.append('avatar', file)
+  const { data } = await apiClient.post<ApiResource<User>>('/api/user/avatar', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  })
+  return data.data
+}
+
+export async function deleteAvatar(): Promise<User> {
+  const { data } = await apiClient.delete<ApiResource<User>>('/api/user/avatar')
+  return data.data
+}
+
 function isAxios401(error: unknown): boolean {
   return (
     typeof error === 'object' &&

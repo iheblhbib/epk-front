@@ -8,9 +8,10 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 import { z } from 'zod'
 import type { TFunction } from 'i18next'
-import { updatePassword, updateProfile } from '@/api/auth'
+import { deleteAvatar, updatePassword, updateProfile, uploadAvatar } from '@/api/auth'
 import { ConfirmDialog } from '@/components/common/ConfirmDialog'
 import { EmptyState } from '@/components/common/EmptyState'
+import { ImageUploadField } from '@/components/common/ImageUploadField'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -33,8 +34,10 @@ import { TwoFactorTab } from '@/features/settings/components/TwoFactorTab'
 import { useCurrentWorkspace } from '@/features/workspaces/hooks/useCurrentWorkspace'
 import {
   useDeleteWorkspace,
+  useDeleteWorkspaceLogo,
   useLeaveWorkspace,
   useUpdateWorkspace,
+  useUploadWorkspaceLogo,
   useWorkspaceActivity,
 } from '@/features/workspaces/hooks/useWorkspaces'
 import { LANGUAGE_NAMES, SUPPORTED_LANGUAGES, type SupportedLanguage } from '@/i18n'
@@ -91,13 +94,37 @@ function ProfileTab() {
     onError: () => toast.error(t('settings.profile.updateError')),
   })
 
+  const uploadAvatarMutation = useMutation({
+    mutationFn: uploadAvatar,
+    onSuccess: (updatedUser) => queryClient.setQueryData(authUserKey, updatedUser),
+    onError: () => toast.error(t('settings.profile.avatarUpdateError')),
+  })
+
+  const deleteAvatarMutation = useMutation({
+    mutationFn: deleteAvatar,
+    onSuccess: (updatedUser) => queryClient.setQueryData(authUserKey, updatedUser),
+    onError: () => toast.error(t('settings.profile.avatarUpdateError')),
+  })
+
   return (
     <Card>
       <CardHeader>
         <CardTitle>{t('settings.profile.title')}</CardTitle>
         <CardDescription>{t('settings.profile.description')}</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="space-y-6">
+        <ImageUploadField
+          imageUrl={user?.avatar_url ?? null}
+          fallbackLabel={user?.name ?? ''}
+          onUpload={(file) => uploadAvatarMutation.mutate(file)}
+          onRemove={() => deleteAvatarMutation.mutate()}
+          isUploading={uploadAvatarMutation.isPending}
+          isRemoving={deleteAvatarMutation.isPending}
+          uploadLabel={t('settings.profile.avatarUpload')}
+          changeLabel={t('settings.profile.avatarChange')}
+          removeLabel={t('settings.profile.avatarRemove')}
+          invalidFileError={t('settings.profile.avatarInvalidFile')}
+        />
         <Form {...form}>
           <form onSubmit={form.handleSubmit((values) => mutation.mutate(values))} className="space-y-4">
             <FormField
@@ -274,6 +301,8 @@ function WorkspaceTab() {
   const updateWorkspace = useUpdateWorkspace(currentWorkspace?.id ?? 0)
   const leaveWorkspace = useLeaveWorkspace()
   const deleteWorkspace = useDeleteWorkspace()
+  const uploadLogo = useUploadWorkspaceLogo(currentWorkspace?.id ?? 0)
+  const deleteLogo = useDeleteWorkspaceLogo(currentWorkspace?.id ?? 0)
 
   const form = useForm<z.infer<ReturnType<typeof workspaceSchema>>>({
     resolver: zodResolver(workspaceSchema(t)),
@@ -295,7 +324,21 @@ function WorkspaceTab() {
           <CardTitle>{t('settings.workspace.title')}</CardTitle>
           <CardDescription>{t('settings.workspace.description', { workspace: currentWorkspace.name })}</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="space-y-6">
+          <ImageUploadField
+            imageUrl={currentWorkspace.logo_url}
+            fallbackLabel={currentWorkspace.name}
+            shape="square"
+            readOnly={!canManage}
+            onUpload={(file) => uploadLogo.mutate(file, { onError: () => toast.error(t('settings.workspace.logoUpdateError')) })}
+            onRemove={() => deleteLogo.mutate(undefined, { onError: () => toast.error(t('settings.workspace.logoUpdateError')) })}
+            isUploading={uploadLogo.isPending}
+            isRemoving={deleteLogo.isPending}
+            uploadLabel={t('settings.workspace.logoUpload')}
+            changeLabel={t('settings.workspace.logoChange')}
+            removeLabel={t('settings.workspace.logoRemove')}
+            invalidFileError={t('settings.workspace.logoInvalidFile')}
+          />
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit((values) =>

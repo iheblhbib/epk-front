@@ -35,6 +35,20 @@ export async function leaveWorkspace(id: number): Promise<void> {
   await apiClient.post(`/api/workspaces/${id}/leave`)
 }
 
+export async function uploadWorkspaceLogo(workspaceId: number, file: File): Promise<Workspace> {
+  const formData = new FormData()
+  formData.append('logo', file)
+  const { data } = await apiClient.post<ApiResource<Workspace>>(`/api/workspaces/${workspaceId}/logo`, formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  })
+  return data.data
+}
+
+export async function deleteWorkspaceLogo(workspaceId: number): Promise<Workspace> {
+  const { data } = await apiClient.delete<ApiResource<Workspace>>(`/api/workspaces/${workspaceId}/logo`)
+  return data.data
+}
+
 export async function listWorkspaceMembers(workspaceId: number): Promise<WorkspaceMember[]> {
   const { data } = await apiClient.get<ApiCollection<WorkspaceMember>>(
     `/api/workspaces/${workspaceId}/members`

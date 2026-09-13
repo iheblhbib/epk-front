@@ -450,7 +450,12 @@
       "name": "Name",
       "email": "E-Mail",
       "updated": "Profil aktualisiert",
-      "updateError": "Ihr Profil konnte nicht aktualisiert werden"
+      "updateError": "Ihr Profil konnte nicht aktualisiert werden",
+      "avatarUpload": "Foto hochladen",
+      "avatarChange": "Foto ändern",
+      "avatarRemove": "Entfernen",
+      "avatarInvalidFile": "Bitte wähle ein Bild unter 5 MB.",
+      "avatarUpdateError": "Dein Foto konnte nicht aktualisiert werden"
     },
     "language": {
       "title": "Sprache",
@@ -471,7 +476,12 @@
       "description": "Aktualisieren Sie Name und Beschreibung von {{workspace}}.",
       "descriptionField": "Beschreibung",
       "updated": "Arbeitsbereich aktualisiert",
-      "updateError": "Der Arbeitsbereich konnte nicht aktualisiert werden"
+      "updateError": "Der Arbeitsbereich konnte nicht aktualisiert werden",
+      "logoUpload": "Logo hochladen",
+      "logoChange": "Logo ändern",
+      "logoRemove": "Entfernen",
+      "logoInvalidFile": "Bitte wähle ein Bild unter 5 MB.",
+      "logoUpdateError": "Das Workspace-Logo konnte nicht aktualisiert werden"
     },
     "dangerZone": {
       "title": "Gefahrenzone",

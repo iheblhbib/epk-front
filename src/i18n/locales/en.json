@@ -450,7 +450,12 @@
       "name": "Name",
       "email": "Email",
       "updated": "Profile updated",
-      "updateError": "Could not update your profile"
+      "updateError": "Could not update your profile",
+      "avatarUpload": "Upload photo",
+      "avatarChange": "Change photo",
+      "avatarRemove": "Remove",
+      "avatarInvalidFile": "Please choose an image under 5MB.",
+      "avatarUpdateError": "Could not update your photo"
     },
     "language": {
       "title": "Language",
@@ -471,7 +476,12 @@
       "description": "Update {{workspace}}'s name and description.",
       "descriptionField": "Description",
       "updated": "Workspace updated",
-      "updateError": "Could not update the workspace"
+      "updateError": "Could not update the workspace",
+      "logoUpload": "Upload logo",
+      "logoChange": "Change logo",
+      "logoRemove": "Remove",
+      "logoInvalidFile": "Please choose an image under 5MB.",
+      "logoUpdateError": "Could not update the workspace logo"
     },
     "dangerZone": {
       "title": "Danger zone",

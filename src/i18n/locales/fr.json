@@ -450,7 +450,12 @@
       "name": "Nom",
       "email": "E-mail",
       "updated": "Profil mis à jour",
-      "updateError": "Impossible de mettre à jour votre profil"
+      "updateError": "Impossible de mettre à jour votre profil",
+      "avatarUpload": "Ajouter une photo",
+      "avatarChange": "Changer la photo",
+      "avatarRemove": "Retirer",
+      "avatarInvalidFile": "Choisissez une image de moins de 5 Mo.",
+      "avatarUpdateError": "Impossible de mettre à jour votre photo"
     },
     "language": {
       "title": "Langue",
@@ -471,7 +476,12 @@
       "description": "Mettez à jour le nom et la description de {{workspace}}.",
       "descriptionField": "Description",
       "updated": "Espace de travail mis à jour",
-      "updateError": "Impossible de mettre à jour l'espace de travail"
+      "updateError": "Impossible de mettre à jour l'espace de travail",
+      "logoUpload": "Ajouter un logo",
+      "logoChange": "Changer le logo",
+      "logoRemove": "Retirer",
+      "logoInvalidFile": "Choisissez une image de moins de 5 Mo.",
+      "logoUpdateError": "Impossible de mettre à jour le logo de l'espace de travail"
     },
     "dangerZone": {
       "title": "Zone de danger",

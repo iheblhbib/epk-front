@@ -450,7 +450,12 @@
       "name": "姓名",
       "email": "邮箱",
       "updated": "个人资料已更新",
-      "updateError": "无法更新您的个人资料"
+      "updateError": "无法更新您的个人资料",
+      "avatarUpload": "上传头像",
+      "avatarChange": "更换头像",
+      "avatarRemove": "移除",
+      "avatarInvalidFile": "请选择小于 5MB 的图片。",
+      "avatarUpdateError": "无法更新您的头像"
     },
     "language": {
       "title": "语言",
@@ -471,7 +476,12 @@
       "description": "更新 {{workspace}} 的名称和描述。",
       "descriptionField": "描述",
       "updated": "工作区已更新",
-      "updateError": "无法更新工作区"
+      "updateError": "无法更新工作区",
+      "logoUpload": "上传徽标",
+      "logoChange": "更换徽标",
+      "logoRemove": "移除",
+      "logoInvalidFile": "请选择小于 5MB 的图片。",
+      "logoUpdateError": "无法更新工作区徽标"
     },
     "dangerZone": {
       "title": "危险操作区",

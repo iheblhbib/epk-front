@@ -450,7 +450,12 @@
       "name": "الاسم",
       "email": "البريد الإلكتروني",
       "updated": "تم تحديث الملف الشخصي",
-      "updateError": "تعذّر تحديث ملفك الشخصي"
+      "updateError": "تعذّر تحديث ملفك الشخصي",
+      "avatarUpload": "رفع صورة",
+      "avatarChange": "تغيير الصورة",
+      "avatarRemove": "إزالة",
+      "avatarInvalidFile": "يرجى اختيار صورة أقل من 5 ميغابايت.",
+      "avatarUpdateError": "تعذر تحديث صورتك"
     },
     "language": {
       "title": "اللغة",
@@ -471,7 +476,12 @@
       "description": "حدّث اسم ووصف {{workspace}}.",
       "descriptionField": "الوصف",
       "updated": "تم تحديث مساحة العمل",
-      "updateError": "تعذّر تحديث مساحة العمل"
+      "updateError": "تعذّر تحديث مساحة العمل",
+      "logoUpload": "رفع الشعار",
+      "logoChange": "تغيير الشعار",
+      "logoRemove": "إزالة",
+      "logoInvalidFile": "يرجى اختيار صورة أقل من 5 ميغابايت.",
+      "logoUpdateError": "تعذر تحديث شعار مساحة العمل"
     },
     "dangerZone": {
       "title": "منطقة الخطر",
