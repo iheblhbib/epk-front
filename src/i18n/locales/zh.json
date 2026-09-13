@@ -42,6 +42,7 @@
       "dashboard": "仪表盘",
       "users": "用户",
       "workspaces": "工作区",
+      "payments": "付款",
       "epks": "EPK",
       "auditLog": "审计日志",
       "backToApp": "返回应用"
@@ -162,6 +163,28 @@
       "updateError": "无法更新此 EPK",
       "columns": {
         "workspace": "工作区"
+      }
+    },
+    "payments": {
+      "title": "付款",
+      "description": "所有工作区的每一笔付款。",
+      "searchPlaceholder": "按工作区搜索…",
+      "allStatuses": "所有状态",
+      "fromDate": "起始日期",
+      "toDate": "结束日期",
+      "viewInvoice": "查看发票",
+      "refundedAmount": "(已退款 {{amount}})",
+      "statusLabels": {
+        "paid": "已支付",
+        "failed": "失败",
+        "void": "作废",
+        "refunded": "已退款"
+      },
+      "columns": {
+        "workspace": "工作区",
+        "amount": "金额",
+        "status": "状态",
+        "date": "日期"
       }
     },
     "auditLog": {

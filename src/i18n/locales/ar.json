@@ -42,6 +42,7 @@
       "dashboard": "لوحة التحكم",
       "users": "المستخدمون",
       "workspaces": "مساحات العمل",
+      "payments": "المدفوعات",
       "epks": "الملفات الصحفية",
       "auditLog": "سجل التدقيق",
       "backToApp": "العودة إلى التطبيق"
@@ -162,6 +163,28 @@
       "updateError": "تعذر تحديث هذا الـ EPK",
       "columns": {
         "workspace": "مساحة العمل"
+      }
+    },
+    "payments": {
+      "title": "المدفوعات",
+      "description": "كل المدفوعات عبر جميع مساحات العمل.",
+      "searchPlaceholder": "ابحث حسب مساحة العمل…",
+      "allStatuses": "كل الحالات",
+      "fromDate": "من تاريخ",
+      "toDate": "إلى تاريخ",
+      "viewInvoice": "عرض الفاتورة",
+      "refundedAmount": "(تم استرداد {{amount}})",
+      "statusLabels": {
+        "paid": "مدفوع",
+        "failed": "فشل",
+        "void": "ملغى",
+        "refunded": "مسترد"
+      },
+      "columns": {
+        "workspace": "مساحة العمل",
+        "amount": "المبلغ",
+        "status": "الحالة",
+        "date": "التاريخ"
       }
     },
     "auditLog": {

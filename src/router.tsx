@@ -7,6 +7,7 @@ import { ProtectedRoute } from '@/components/common/ProtectedRoute'
 import { AdminAuditLogPage } from '@/features/admin/pages/AdminAuditLogPage'
 import { AdminDashboardPage } from '@/features/admin/pages/AdminDashboardPage'
 import { AdminEpksPage } from '@/features/admin/pages/AdminEpksPage'
+import { AdminPaymentsPage } from '@/features/admin/pages/AdminPaymentsPage'
 import { AdminUsersPage } from '@/features/admin/pages/AdminUsersPage'
 import { AdminWorkspacesPage } from '@/features/admin/pages/AdminWorkspacesPage'
 import { ForgotPasswordPage } from '@/features/auth/pages/ForgotPasswordPage'
@@ -59,6 +60,7 @@ export const router = createBrowserRouter([
               { index: true, element: <AdminDashboardPage /> },
               { path: 'users', element: <AdminUsersPage /> },
               { path: 'workspaces', element: <AdminWorkspacesPage /> },
+              { path: 'payments', element: <AdminPaymentsPage /> },
               { path: 'epks', element: <AdminEpksPage /> },
               { path: 'audit-log', element: <AdminAuditLogPage /> },
             ],

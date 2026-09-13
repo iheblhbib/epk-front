@@ -1,4 +1,4 @@
-import { ArrowLeft, FileStack, Gauge, ScrollText, Users, UsersRound } from 'lucide-react'
+import { ArrowLeft, CreditCard, FileStack, Gauge, ScrollText, Users, UsersRound } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { NavLink, Outlet } from 'react-router-dom'
 import { NotificationBell } from '@/components/common/NotificationBell'
@@ -9,6 +9,7 @@ const ADMIN_NAV_ITEMS = [
   { to: '/admin', labelKey: 'admin.nav.dashboard', icon: Gauge, end: true },
   { to: '/admin/users', labelKey: 'admin.nav.users', icon: Users, end: false },
   { to: '/admin/workspaces', labelKey: 'admin.nav.workspaces', icon: UsersRound, end: false },
+  { to: '/admin/payments', labelKey: 'admin.nav.payments', icon: CreditCard, end: false },
   { to: '/admin/epks', labelKey: 'admin.nav.epks', icon: FileStack, end: false },
   { to: '/admin/audit-log', labelKey: 'admin.nav.auditLog', icon: ScrollText, end: false },
 ] as const

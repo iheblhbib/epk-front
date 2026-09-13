@@ -6,6 +6,7 @@ import {
   getAdminActivity,
   getAdminStats,
   listAdminEpks,
+  listAdminPayments,
   listAdminUsers,
   listAdminWorkspaces,
   listAuditLogs,
@@ -15,7 +16,7 @@ import {
   updateAdminWorkspaceExpiration,
   updateAdminWorkspacePlan,
 } from '@/api/admin'
-import type { EpkStatus, SubscriptionPlan, UserRole } from '@/types'
+import type { EpkStatus, PaymentStatus, SubscriptionPlan, UserRole } from '@/types'
 
 export function useAdminStats() {
   return useQuery({ queryKey: ['admin', 'stats'], queryFn: getAdminStats })
@@ -122,6 +123,14 @@ export function useDeleteAdminEpk() {
   return useMutation({
     mutationFn: deleteAdminEpk,
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin', 'epks'] }),
+  })
+}
+
+export function useAdminPayments(params: { search?: string; status?: PaymentStatus; from?: string; to?: string; page?: number }) {
+  return useQuery({
+    queryKey: ['admin', 'payments', params],
+    queryFn: () => listAdminPayments(params),
+    placeholderData: keepPreviousData,
   })
 }
 

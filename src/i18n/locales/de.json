@@ -42,6 +42,7 @@
       "dashboard": "Dashboard",
       "users": "Benutzer",
       "workspaces": "Arbeitsbereiche",
+      "payments": "Zahlungen",
       "epks": "EPKs",
       "auditLog": "Audit-Protokoll",
       "backToApp": "Zurück zur App"
@@ -162,6 +163,28 @@
       "updateError": "Dieses EPK konnte nicht aktualisiert werden",
       "columns": {
         "workspace": "Arbeitsbereich"
+      }
+    },
+    "payments": {
+      "title": "Zahlungen",
+      "description": "Alle Zahlungen aus allen Workspaces.",
+      "searchPlaceholder": "Nach Workspace suchen…",
+      "allStatuses": "Alle Status",
+      "fromDate": "Von Datum",
+      "toDate": "Bis Datum",
+      "viewInvoice": "Rechnung ansehen",
+      "refundedAmount": "({{amount}} erstattet)",
+      "statusLabels": {
+        "paid": "Bezahlt",
+        "failed": "Fehlgeschlagen",
+        "void": "Storniert",
+        "refunded": "Erstattet"
+      },
+      "columns": {
+        "workspace": "Workspace",
+        "amount": "Betrag",
+        "status": "Status",
+        "date": "Datum"
       }
     },
     "auditLog": {

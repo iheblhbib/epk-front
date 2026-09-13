@@ -42,6 +42,7 @@
       "dashboard": "Tableau de bord",
       "users": "Utilisateurs",
       "workspaces": "Espaces de travail",
+      "payments": "Paiements",
       "epks": "EPK",
       "auditLog": "Journal d'audit",
       "backToApp": "Retour à l'application"
@@ -162,6 +163,28 @@
       "updateError": "Impossible de mettre à jour cet EPK",
       "columns": {
         "workspace": "Espace de travail"
+      }
+    },
+    "payments": {
+      "title": "Paiements",
+      "description": "Tous les paiements de tous les espaces de travail.",
+      "searchPlaceholder": "Rechercher par espace de travail…",
+      "allStatuses": "Tous les statuts",
+      "fromDate": "Date de début",
+      "toDate": "Date de fin",
+      "viewInvoice": "Voir la facture",
+      "refundedAmount": "({{amount}} remboursé)",
+      "statusLabels": {
+        "paid": "Payé",
+        "failed": "Échoué",
+        "void": "Annulé",
+        "refunded": "Remboursé"
+      },
+      "columns": {
+        "workspace": "Espace de travail",
+        "amount": "Montant",
+        "status": "Statut",
+        "date": "Date"
       }
     },
     "auditLog": {

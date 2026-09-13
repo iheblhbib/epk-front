@@ -42,6 +42,7 @@
       "dashboard": "Dashboard",
       "users": "Users",
       "workspaces": "Workspaces",
+      "payments": "Payments",
       "epks": "EPKs",
       "auditLog": "Audit log",
       "backToApp": "Back to app"
@@ -162,6 +163,28 @@
       "updateError": "Could not update this EPK",
       "columns": {
         "workspace": "Workspace"
+      }
+    },
+    "payments": {
+      "title": "Payments",
+      "description": "Every payment across every workspace.",
+      "searchPlaceholder": "Search by workspace…",
+      "allStatuses": "All statuses",
+      "fromDate": "From date",
+      "toDate": "To date",
+      "viewInvoice": "View invoice",
+      "refundedAmount": "({{amount}} refunded)",
+      "statusLabels": {
+        "paid": "Paid",
+        "failed": "Failed",
+        "void": "Void",
+        "refunded": "Refunded"
+      },
+      "columns": {
+        "workspace": "Workspace",
+        "amount": "Amount",
+        "status": "Status",
+        "date": "Date"
       }
     },
     "auditLog": {

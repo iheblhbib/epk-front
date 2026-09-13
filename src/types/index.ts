@@ -817,6 +817,19 @@ export interface AdminEpk {
   created_at: string
 }
 
+export type PaymentStatus = 'paid' | 'failed' | 'void' | 'refunded'
+
+export interface AdminPayment {
+  id: number
+  workspace: { id: number; name: string } | null
+  status: PaymentStatus
+  amount: number
+  amount_refunded: number
+  currency: string
+  hosted_invoice_url: string | null
+  invoice_created_at: string
+}
+
 // The member-facing counterpart to AuditLogEntry — scoped to one workspace,
 // and without the admin-only subject_type/subject_id/ip_address fields (see
 // backend/app/Http/Controllers/Api/WorkspaceActivityLogController.php).

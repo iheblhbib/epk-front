@@ -2,6 +2,7 @@ import { apiClient } from '@/api/client'
 import type {
   AdminActivityEntry,
   AdminEpk,
+  AdminPayment,
   AdminStats,
   AdminUser,
   AdminWorkspace,
@@ -9,6 +10,7 @@ import type {
   ApiResource,
   AuditLogEntry,
   EpkStatus,
+  PaymentStatus,
   SubscriptionPlan,
   UserRole,
 } from '@/types'
@@ -82,6 +84,17 @@ export async function updateAdminEpk(
 
 export async function deleteAdminEpk(epkId: number): Promise<void> {
   await apiClient.delete(`/api/admin/epks/${epkId}`)
+}
+
+export async function listAdminPayments(params: {
+  search?: string
+  status?: PaymentStatus
+  from?: string
+  to?: string
+  page?: number
+}): Promise<ApiPaginated<AdminPayment>> {
+  const { data } = await apiClient.get<ApiPaginated<AdminPayment>>('/api/admin/payments', { params })
+  return data
 }
 
 export async function listAuditLogs(params: { action?: string; page?: number }): Promise<ApiPaginated<AuditLogEntry>> {
