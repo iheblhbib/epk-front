@@ -1,8 +1,9 @@
-import { EyeOff, Search } from 'lucide-react'
+import { EyeOff, Search, Trash2 } from 'lucide-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 import type { TFunction } from 'i18next'
+import { ConfirmDialog } from '@/components/common/ConfirmDialog'
 import { CardGridSkeleton } from '@/components/common/LoadingSkeleton'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -10,7 +11,7 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { AdminPagination } from '@/features/admin/components/AdminPagination'
-import { useAdminEpks, useUnpublishAdminEpk } from '@/features/admin/hooks/useAdmin'
+import { useAdminEpks, useDeleteAdminEpk, useUnpublishAdminEpk, useUpdateAdminEpk } from '@/features/admin/hooks/useAdmin'
 import type { AdminEpk, EpkStatus } from '@/types'
 
 function statusFilterItems(t: TFunction): Record<'all' | EpkStatus, string> {
@@ -28,44 +29,107 @@ const STATUS_BADGE_VARIANT: Record<EpkStatus, 'secondary' | 'default' | 'outline
   archived: 'outline',
 }
 
-const STATUS_LABEL_KEY: Record<EpkStatus, string> = {
-  draft: 'epks.status.draft',
-  published: 'epks.status.published',
-  archived: 'epks.status.archived',
-}
-
 function EpkRow({ epk }: { epk: AdminEpk }) {
   const { t } = useTranslation()
   const unpublish = useUnpublishAdminEpk()
+  const updateEpk = useUpdateAdminEpk()
+  const deleteEpk = useDeleteAdminEpk()
+  const [title, setTitle] = useState(epk.title)
+  const [confirmOpen, setConfirmOpen] = useState(false)
+  const statusItems = { draft: t('epks.status.draft'), published: t('epks.status.published'), archived: t('epks.status.archived') }
 
   return (
     <TableRow>
-      <TableCell className="font-medium text-foreground">{epk.title}</TableCell>
+      <TableCell className="font-medium text-foreground">
+        <Input
+          value={title}
+          onChange={(event) => setTitle(event.target.value)}
+          onBlur={() => {
+            if (title.trim() && title !== epk.title) {
+              updateEpk.mutate(
+                { epkId: epk.id, payload: { title } },
+                { onError: () => toast.error(t('admin.epks.updateError')) }
+              )
+            }
+          }}
+          className="h-8 max-w-48"
+        />
+      </TableCell>
       <TableCell className="text-muted-foreground">{epk.workspace?.name ?? '—'}</TableCell>
       <TableCell className="text-muted-foreground">{epk.artist?.name ?? '—'}</TableCell>
       <TableCell>
-        <Badge variant={STATUS_BADGE_VARIANT[epk.status]} className="capitalize">
-          {t(STATUS_LABEL_KEY[epk.status])}
-        </Badge>
+        <Select
+          items={statusItems}
+          value={epk.status}
+          onValueChange={(value) =>
+            updateEpk.mutate(
+              { epkId: epk.id, payload: { status: value as EpkStatus } },
+              { onError: () => toast.error(t('admin.epks.updateError')) }
+            )
+          }
+        >
+          <SelectTrigger size="sm" className="w-32">
+            <Badge variant={STATUS_BADGE_VARIANT[epk.status]} className="capitalize">
+              <SelectValue />
+            </Badge>
+          </SelectTrigger>
+          <SelectContent>
+            {Object.entries(statusItems).map(([value, label]) => (
+              <SelectItem key={value} value={value}>
+                {label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </TableCell>
       <TableCell className="text-end">
-        {epk.status === 'published' && (
+        <div className="flex justify-end gap-2">
+          {epk.status === 'published' && (
+            <Button
+              variant="outline"
+              size="sm"
+              disabled={unpublish.isPending}
+              onClick={() =>
+                unpublish.mutate(epk.id, {
+                  onSuccess: () => toast.success(t('admin.epks.unpublishedToast', { title: epk.title })),
+                  onError: () => toast.error(t('admin.epks.unpublishError')),
+                })
+              }
+            >
+              <EyeOff className="size-4" />
+              {t('admin.epks.unpublish')}
+            </Button>
+          )}
           <Button
-            variant="outline"
-            size="sm"
-            disabled={unpublish.isPending}
-            onClick={() =>
-              unpublish.mutate(epk.id, {
-                onSuccess: () => toast.success(t('admin.epks.unpublishedToast', { title: epk.title })),
-                onError: () => toast.error(t('admin.epks.unpublishError')),
-              })
-            }
+            variant="ghost"
+            size="icon-sm"
+            className="text-destructive"
+            aria-label={t('admin.epks.delete')}
+            onClick={() => setConfirmOpen(true)}
           >
-            <EyeOff className="size-4" />
-            {t('admin.epks.unpublish')}
+            <Trash2 className="size-4" />
           </Button>
-        )}
+        </div>
       </TableCell>
+
+      <ConfirmDialog
+        open={confirmOpen}
+        onOpenChange={setConfirmOpen}
+        title={t('admin.epks.deleteConfirmTitle')}
+        description={t('admin.epks.deleteConfirmDescription', { title: epk.title })}
+        confirmLabel={t('common.delete')}
+        destructive
+        isLoading={deleteEpk.isPending}
+        onConfirm={() =>
+          deleteEpk.mutate(epk.id, {
+            onSuccess: () => {
+              setConfirmOpen(false)
+              toast.success(t('admin.epks.deleted'))
+            },
+            onError: () => toast.error(t('admin.epks.deleteError')),
+          })
+        }
+      />
     </TableRow>
   )
 }

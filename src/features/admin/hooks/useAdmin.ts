@@ -1,5 +1,7 @@
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
+  deleteAdminEpk,
+  deleteAdminUser,
   deleteAdminWorkspace,
   getAdminActivity,
   getAdminStats,
@@ -8,7 +10,9 @@ import {
   listAdminWorkspaces,
   listAuditLogs,
   unpublishAdminEpk,
+  updateAdminEpk,
   updateAdminUser,
+  updateAdminWorkspaceExpiration,
   updateAdminWorkspacePlan,
 } from '@/api/admin'
 import type { EpkStatus, SubscriptionPlan, UserRole } from '@/types'
@@ -35,6 +39,15 @@ export function useUpdateAdminUser() {
   return useMutation({
     mutationFn: ({ userId, payload }: { userId: number; payload: { role?: UserRole; suspended?: boolean } }) =>
       updateAdminUser(userId, payload),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin', 'users'] }),
+  })
+}
+
+export function useDeleteAdminUser() {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: deleteAdminUser,
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin', 'users'] }),
   })
 }
@@ -66,6 +79,16 @@ export function useUpdateAdminWorkspacePlan() {
   })
 }
 
+export function useUpdateAdminWorkspaceExpiration() {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: ({ workspaceId, adminAccessUntil }: { workspaceId: number; adminAccessUntil: string | null }) =>
+      updateAdminWorkspaceExpiration(workspaceId, adminAccessUntil),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin', 'workspaces'] }),
+  })
+}
+
 export function useAdminEpks(params: { search?: string; status?: EpkStatus; page?: number }) {
   return useQuery({
     queryKey: ['admin', 'epks', params],
@@ -79,6 +102,25 @@ export function useUnpublishAdminEpk() {
 
   return useMutation({
     mutationFn: unpublishAdminEpk,
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin', 'epks'] }),
+  })
+}
+
+export function useUpdateAdminEpk() {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: ({ epkId, payload }: { epkId: number; payload: { title?: string; status?: EpkStatus } }) =>
+      updateAdminEpk(epkId, payload),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin', 'epks'] }),
+  })
+}
+
+export function useDeleteAdminEpk() {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: deleteAdminEpk,
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin', 'epks'] }),
   })
 }

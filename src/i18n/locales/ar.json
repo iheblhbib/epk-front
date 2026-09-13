@@ -102,6 +102,11 @@
       "suspend": "إيقاف",
       "roleUpdateError": "تعذّر تحديث دور هذا المستخدم",
       "updateError": "تعذّر تحديث هذا المستخدم",
+      "delete": "حذف",
+      "deleteConfirmTitle": "حذف هذا المستخدم؟",
+      "deleteConfirmDescription": "سيتم حذف حساب {{name}} نهائيًا.",
+      "deleted": "تم حذف المستخدم",
+      "deleteError": "تعذر حذف هذا المستخدم",
       "columns": {
         "name": "الاسم",
         "email": "البريد الإلكتروني",
@@ -136,7 +141,10 @@
         "unpaid": "غير مدفوع",
         "canceled": "ملغى"
       },
-      "accessEndsAt": "ينتهي الوصول في {{date}}"
+      "accessEndsAt": "ينتهي الوصول في {{date}}",
+      "expirationLabel": "انتهاء صلاحية الوصول",
+      "expirationUpdateError": "تعذر تحديث تاريخ انتهاء الصلاحية",
+      "clearExpiration": "مسح تاريخ الانتهاء"
     },
     "epks": {
       "title": "الملفات الصحفية",
@@ -146,6 +154,12 @@
       "unpublish": "إلغاء النشر",
       "unpublishedToast": "تم إلغاء نشر \"{{title}}\"",
       "unpublishError": "تعذّر إلغاء نشر هذا الملف الصحفي",
+      "delete": "حذف",
+      "deleteConfirmTitle": "حذف هذا الـ EPK؟",
+      "deleteConfirmDescription": "سيتم حذف \"{{title}}\" نهائيًا.",
+      "deleted": "تم حذف الـ EPK",
+      "deleteError": "تعذر حذف هذا الـ EPK",
+      "updateError": "تعذر تحديث هذا الـ EPK",
       "columns": {
         "workspace": "مساحة العمل"
       }

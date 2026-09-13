@@ -102,6 +102,11 @@
       "suspend": "Sperren",
       "roleUpdateError": "Die Rolle dieses Benutzers konnte nicht aktualisiert werden",
       "updateError": "Dieser Benutzer konnte nicht aktualisiert werden",
+      "delete": "Löschen",
+      "deleteConfirmTitle": "Diesen Benutzer löschen?",
+      "deleteConfirmDescription": "Das Konto von {{name}} wird dauerhaft gelöscht.",
+      "deleted": "Benutzer gelöscht",
+      "deleteError": "Dieser Benutzer konnte nicht gelöscht werden",
       "columns": {
         "name": "Name",
         "email": "E-Mail",
@@ -136,7 +141,10 @@
         "unpaid": "Unbezahlt",
         "canceled": "Gekündigt"
       },
-      "accessEndsAt": "Zugriff endet am {{date}}"
+      "accessEndsAt": "Zugriff endet am {{date}}",
+      "expirationLabel": "Zugriffsablauf",
+      "expirationUpdateError": "Das Ablaufdatum konnte nicht aktualisiert werden",
+      "clearExpiration": "Ablauf löschen"
     },
     "epks": {
       "title": "EPKs",
@@ -146,6 +154,12 @@
       "unpublish": "Veröffentlichung aufheben",
       "unpublishedToast": "„{{title}}“ nicht mehr veröffentlicht",
       "unpublishError": "Die Veröffentlichung dieses EPK konnte nicht aufgehoben werden",
+      "delete": "Löschen",
+      "deleteConfirmTitle": "Dieses EPK löschen?",
+      "deleteConfirmDescription": "\"{{title}}\" wird dauerhaft gelöscht.",
+      "deleted": "EPK gelöscht",
+      "deleteError": "Dieses EPK konnte nicht gelöscht werden",
+      "updateError": "Dieses EPK konnte nicht aktualisiert werden",
       "columns": {
         "workspace": "Arbeitsbereich"
       }

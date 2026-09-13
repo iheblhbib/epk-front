@@ -1,4 +1,4 @@
-import { Search, Trash2 } from 'lucide-react'
+import { Search, Trash2, X } from 'lucide-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
@@ -11,7 +11,12 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { AdminPagination } from '@/features/admin/components/AdminPagination'
-import { useAdminWorkspaces, useDeleteAdminWorkspace, useUpdateAdminWorkspacePlan } from '@/features/admin/hooks/useAdmin'
+import {
+  useAdminWorkspaces,
+  useDeleteAdminWorkspace,
+  useUpdateAdminWorkspaceExpiration,
+  useUpdateAdminWorkspacePlan,
+} from '@/features/admin/hooks/useAdmin'
 import type { AdminWorkspace, SubscriptionPlan } from '@/types'
 
 const STATUS_VARIANT: Record<string, 'default' | 'secondary' | 'destructive' | 'outline'> = {
@@ -26,10 +31,15 @@ function planItems(t: TFunction): Record<SubscriptionPlan, string> {
   return { starter: t('admin.workspaces.planStarter'), pro: t('admin.workspaces.planPro'), business: t('admin.workspaces.planBusiness') }
 }
 
+function toDateInputValue(iso: string | null): string {
+  return iso ? iso.slice(0, 10) : ''
+}
+
 function WorkspaceRow({ workspace }: { workspace: AdminWorkspace }) {
   const { t } = useTranslation()
   const deleteWorkspace = useDeleteAdminWorkspace()
   const updatePlan = useUpdateAdminWorkspacePlan()
+  const updateExpiration = useUpdateAdminWorkspaceExpiration()
   const [confirmOpen, setConfirmOpen] = useState(false)
   const items = planItems(t)
 
@@ -71,11 +81,34 @@ function WorkspaceRow({ workspace }: { workspace: AdminWorkspace }) {
             {t(`admin.workspaces.statusLabels.${workspace.subscription_status}`)}
           </Badge>
         )}
-        {workspace.access_ends_at && (
-          <p className="mt-1 text-xs text-muted-foreground">
-            {t('admin.workspaces.accessEndsAt', { date: new Date(workspace.access_ends_at).toLocaleDateString() })}
-          </p>
-        )}
+        <div className="mt-1 flex items-center gap-1">
+          <input
+            type="date"
+            aria-label={t('admin.workspaces.expirationLabel')}
+            value={toDateInputValue(workspace.access_ends_at)}
+            onChange={(event) =>
+              updateExpiration.mutate(
+                { workspaceId: workspace.id, adminAccessUntil: event.target.value || null },
+                { onError: () => toast.error(t('admin.workspaces.expirationUpdateError')) }
+              )
+            }
+            className="h-6 rounded border border-input bg-transparent px-1 text-xs text-muted-foreground"
+          />
+          {workspace.access_ends_at && (
+            <button
+              type="button"
+              aria-label={t('admin.workspaces.clearExpiration')}
+              onClick={() =>
+                updateExpiration.mutate(
+                  { workspaceId: workspace.id, adminAccessUntil: null },
+                  { onError: () => toast.error(t('admin.workspaces.expirationUpdateError')) }
+                )
+              }
+            >
+              <X className="size-3 text-muted-foreground" />
+            </button>
+          )}
+        </div>
       </TableCell>
       <TableCell className="text-muted-foreground">
         {new Date(workspace.created_at).toLocaleDateString()}

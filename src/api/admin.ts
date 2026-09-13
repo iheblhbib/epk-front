@@ -36,6 +36,10 @@ export async function updateAdminUser(
   return data.data
 }
 
+export async function deleteAdminUser(userId: number): Promise<void> {
+  await apiClient.delete(`/api/admin/users/${userId}`)
+}
+
 export async function listAdminWorkspaces(params: {
   search?: string
   page?: number
@@ -52,6 +56,10 @@ export async function updateAdminWorkspacePlan(workspaceId: number, plan: Subscr
   await apiClient.patch(`/api/admin/workspaces/${workspaceId}/subscription`, { plan })
 }
 
+export async function updateAdminWorkspaceExpiration(workspaceId: number, adminAccessUntil: string | null): Promise<void> {
+  await apiClient.patch(`/api/admin/workspaces/${workspaceId}/expiration`, { admin_access_until: adminAccessUntil })
+}
+
 export async function listAdminEpks(params: {
   search?: string
   status?: EpkStatus
@@ -63,6 +71,17 @@ export async function listAdminEpks(params: {
 
 export async function unpublishAdminEpk(epkId: number): Promise<void> {
   await apiClient.post(`/api/admin/epks/${epkId}/unpublish`)
+}
+
+export async function updateAdminEpk(
+  epkId: number,
+  payload: { title?: string; status?: EpkStatus }
+): Promise<void> {
+  await apiClient.patch(`/api/admin/epks/${epkId}`, payload)
+}
+
+export async function deleteAdminEpk(epkId: number): Promise<void> {
+  await apiClient.delete(`/api/admin/epks/${epkId}`)
 }
 
 export async function listAuditLogs(params: { action?: string; page?: number }): Promise<ApiPaginated<AuditLogEntry>> {

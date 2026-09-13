@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { HttpResponse, http } from 'msw'
 import { describe, expect, it } from 'vitest'
 import { AdminWorkspacesPage } from '@/features/admin/pages/AdminWorkspacesPage'
@@ -54,7 +55,7 @@ describe('AdminWorkspacesPage', () => {
     expect(badge.className).toMatch(/destructive/)
   })
 
-  it('shows the access-ends-at date when present', async () => {
+  it('shows the access-ends-at date in the expiration input when present', async () => {
     server.use(
       http.get(`${API_URL}/api/admin/workspaces`, () =>
         HttpResponse.json(workspacesResponse('trialing', '2026-02-14T00:00:00.000000Z'))
@@ -63,16 +64,57 @@ describe('AdminWorkspacesPage', () => {
 
     renderPage()
 
-    const expectedDate = new Date('2026-02-14T00:00:00.000000Z').toLocaleDateString()
-    expect(await screen.findByText(`Access ends ${expectedDate}`)).toBeInTheDocument()
+    const input = (await screen.findByLabelText(/^access expiration$/i)) as HTMLInputElement
+    expect(input.value).toBe('2026-02-14')
   })
 
-  it('does not show an access-ends-at line when the field is null', async () => {
+  it('leaves the expiration input empty when the field is null', async () => {
     server.use(http.get(`${API_URL}/api/admin/workspaces`, () => HttpResponse.json(workspacesResponse('active', null))))
 
     renderPage()
 
+    const input = (await screen.findByLabelText(/^access expiration$/i)) as HTMLInputElement
     await screen.findByText('Active')
-    expect(screen.queryByText(/Access ends/)).not.toBeInTheDocument()
+    expect(input.value).toBe('')
+  })
+
+  it('updates the expiration when a new date is entered', async () => {
+    let patchedBody: unknown = null
+    server.use(
+      http.get(`${API_URL}/api/admin/workspaces`, () => HttpResponse.json(workspacesResponse('active', null))),
+      http.patch(`${API_URL}/api/admin/workspaces/1/expiration`, async ({ request }) => {
+        patchedBody = await request.json()
+        return HttpResponse.json({ data: { id: 1, access_ends_at: '2026-03-01T00:00:00.000000Z' } })
+      })
+    )
+    const user = userEvent.setup()
+    renderPage()
+
+    const input = (await screen.findByLabelText(/^access expiration$/i)) as HTMLInputElement
+    await user.clear(input)
+    await user.type(input, '2026-03-01')
+    await user.tab()
+
+    await waitFor(() => expect(patchedBody).toEqual({ admin_access_until: '2026-03-01' }))
+  })
+
+  it('clears the expiration when the clear button is clicked', async () => {
+    let patchedBody: unknown = null
+    server.use(
+      http.get(`${API_URL}/api/admin/workspaces`, () =>
+        HttpResponse.json(workspacesResponse('active', '2026-02-14T00:00:00.000000Z'))
+      ),
+      http.patch(`${API_URL}/api/admin/workspaces/1/expiration`, async ({ request }) => {
+        patchedBody = await request.json()
+        return HttpResponse.json({ data: { id: 1, access_ends_at: null } })
+      })
+    )
+    const user = userEvent.setup()
+    renderPage()
+
+    await screen.findByLabelText(/^access expiration$/i)
+    await user.click(screen.getByRole('button', { name: /clear expiration/i }))
+
+    await waitFor(() => expect(patchedBody).toEqual({ admin_access_until: null }))
   })
 })

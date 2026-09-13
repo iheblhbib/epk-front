@@ -102,6 +102,11 @@
       "suspend": "暂停账户",
       "roleUpdateError": "无法更新该用户的角色",
       "updateError": "无法更新该用户",
+      "delete": "删除",
+      "deleteConfirmTitle": "删除此用户？",
+      "deleteConfirmDescription": "{{name}} 的账户将被永久删除。",
+      "deleted": "用户已删除",
+      "deleteError": "无法删除此用户",
       "columns": {
         "name": "姓名",
         "email": "邮箱",
@@ -136,7 +141,10 @@
         "unpaid": "未付款",
         "canceled": "已取消"
       },
-      "accessEndsAt": "访问权限将于 {{date}} 结束"
+      "accessEndsAt": "访问权限将于 {{date}} 结束",
+      "expirationLabel": "访问过期时间",
+      "expirationUpdateError": "无法更新过期日期",
+      "clearExpiration": "清除过期时间"
     },
     "epks": {
       "title": "EPK",
@@ -146,6 +154,12 @@
       "unpublish": "取消发布",
       "unpublishedToast": "已取消发布《{{title}}》",
       "unpublishError": "无法取消发布该 EPK",
+      "delete": "删除",
+      "deleteConfirmTitle": "删除此 EPK？",
+      "deleteConfirmDescription": "“{{title}}” 将被永久删除。",
+      "deleted": "EPK 已删除",
+      "deleteError": "无法删除此 EPK",
+      "updateError": "无法更新此 EPK",
       "columns": {
         "workspace": "工作区"
       }

@@ -1,21 +1,33 @@
-import { Search, ShieldCheck, ShieldOff } from 'lucide-react'
+import { Search, ShieldCheck, ShieldOff, Trash2 } from 'lucide-react'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
+import { ConfirmDialog } from '@/components/common/ConfirmDialog'
 import { CardGridSkeleton } from '@/components/common/LoadingSkeleton'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { AdminPagination } from '@/features/admin/components/AdminPagination'
-import { useAdminUsers, useUpdateAdminUser } from '@/features/admin/hooks/useAdmin'
+import { useAdminUsers, useDeleteAdminUser, useUpdateAdminUser } from '@/features/admin/hooks/useAdmin'
 import { useAuth } from '@/providers/AuthProvider'
 import type { AdminUser } from '@/types'
+
+function extractErrorMessage(error: unknown, fallback: string): string {
+  if (error && typeof error === 'object' && 'response' in error) {
+    const response = (error as { response?: { data?: { errors?: Record<string, string[]> } } }).response
+    const firstError = response?.data?.errors ? Object.values(response.data.errors)[0]?.[0] : undefined
+    if (firstError) return firstError
+  }
+  return fallback
+}
 
 function UserRow({ user }: { user: AdminUser }) {
   const { t } = useTranslation()
   const { user: currentUser } = useAuth()
   const updateUser = useUpdateAdminUser()
+  const deleteUser = useDeleteAdminUser()
+  const [confirmOpen, setConfirmOpen] = useState(false)
   const isSelf = user.id === currentUser?.id
   const isSuspended = user.suspended_at !== null
 
@@ -78,8 +90,37 @@ function UserRow({ user }: { user: AdminUser }) {
               </>
             )}
           </Button>
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            className="text-destructive"
+            aria-label={t('admin.users.delete')}
+            disabled={isSelf}
+            onClick={() => setConfirmOpen(true)}
+          >
+            <Trash2 className="size-4" />
+          </Button>
         </div>
       </TableCell>
+
+      <ConfirmDialog
+        open={confirmOpen}
+        onOpenChange={setConfirmOpen}
+        title={t('admin.users.deleteConfirmTitle')}
+        description={t('admin.users.deleteConfirmDescription', { name: user.name })}
+        confirmLabel={t('common.delete')}
+        destructive
+        isLoading={deleteUser.isPending}
+        onConfirm={() =>
+          deleteUser.mutate(user.id, {
+            onSuccess: () => {
+              setConfirmOpen(false)
+              toast.success(t('admin.users.deleted'))
+            },
+            onError: (error) => toast.error(extractErrorMessage(error, t('admin.users.deleteError'))),
+          })
+        }
+      />
     </TableRow>
   )
 }

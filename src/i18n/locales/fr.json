@@ -102,6 +102,11 @@
       "suspend": "Suspendre",
       "roleUpdateError": "Impossible de modifier le rôle de cet utilisateur",
       "updateError": "Impossible de modifier cet utilisateur",
+      "delete": "Supprimer",
+      "deleteConfirmTitle": "Supprimer cet utilisateur ?",
+      "deleteConfirmDescription": "Le compte de {{name}} sera définitivement supprimé.",
+      "deleted": "Utilisateur supprimé",
+      "deleteError": "Impossible de supprimer cet utilisateur",
       "columns": {
         "name": "Nom",
         "email": "E-mail",
@@ -136,7 +141,10 @@
         "unpaid": "Non payé",
         "canceled": "Résilié"
       },
-      "accessEndsAt": "Accès jusqu'au {{date}}"
+      "accessEndsAt": "Accès jusqu'au {{date}}",
+      "expirationLabel": "Expiration de l'accès",
+      "expirationUpdateError": "Impossible de mettre à jour la date d'expiration",
+      "clearExpiration": "Effacer l'expiration"
     },
     "epks": {
       "title": "EPK",
@@ -146,6 +154,12 @@
       "unpublish": "Dépublier",
       "unpublishedToast": "« {{title}} » dépublié",
       "unpublishError": "Impossible de dépublier cet EPK",
+      "delete": "Supprimer",
+      "deleteConfirmTitle": "Supprimer cet EPK ?",
+      "deleteConfirmDescription": "« {{title}} » sera définitivement supprimé.",
+      "deleted": "EPK supprimé",
+      "deleteError": "Impossible de supprimer cet EPK",
+      "updateError": "Impossible de mettre à jour cet EPK",
       "columns": {
         "workspace": "Espace de travail"
       }
