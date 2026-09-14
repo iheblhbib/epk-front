@@ -7,6 +7,7 @@ import {
   updateContact,
   type ContactFormPayload,
 } from '@/api/contacts'
+import { invalidateOnboarding } from '@/features/workspaces/hooks/useWorkspaces'
 import type { ContactCategory } from '@/types'
 
 export const contactsKey = (workspaceId: number, search?: string, category?: ContactCategory) =>
@@ -25,7 +26,10 @@ export function useCreateContact(workspaceId: number) {
 
   return useMutation({
     mutationFn: (payload: ContactFormPayload) => createContact(workspaceId, payload),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['workspaces', workspaceId, 'contacts'] }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['workspaces', workspaceId, 'contacts'] })
+      invalidateOnboarding(queryClient)
+    },
   })
 }
 
@@ -53,6 +57,9 @@ export function useImportContacts(workspaceId: number) {
 
   return useMutation({
     mutationFn: (file: File) => importContacts(workspaceId, file),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['workspaces', workspaceId, 'contacts'] }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['workspaces', workspaceId, 'contacts'] })
+      invalidateOnboarding(queryClient)
+    },
   })
 }

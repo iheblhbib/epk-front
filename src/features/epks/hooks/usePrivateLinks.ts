@@ -9,6 +9,7 @@ import {
   type SendPrivateLinkPayload,
   type UpdatePrivateLinkPayload,
 } from '@/api/privateLinks'
+import { invalidateOnboarding } from '@/features/workspaces/hooks/useWorkspaces'
 
 export const privateLinksKey = (epkId: number) => ['epks', epkId, 'private-links'] as const
 
@@ -25,7 +26,10 @@ export function useCreatePrivateLink(epkId: number) {
 
   return useMutation({
     mutationFn: (payload: CreatePrivateLinkPayload) => createPrivateLink(epkId, payload),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: privateLinksKey(epkId) }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: privateLinksKey(epkId) })
+      invalidateOnboarding(queryClient)
+    },
   })
 }
 

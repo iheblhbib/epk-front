@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { createArtist, deleteArtist, listArtists, updateArtist, type ArtistPayload } from '@/api/artists'
+import { invalidateOnboarding } from '@/features/workspaces/hooks/useWorkspaces'
 
 export const artistsKey = (workspaceId: number) => ['workspaces', workspaceId, 'artists'] as const
 
@@ -16,7 +17,10 @@ export function useCreateArtist(workspaceId: number) {
 
   return useMutation({
     mutationFn: (payload: ArtistPayload) => createArtist(workspaceId, payload),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: artistsKey(workspaceId) }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: artistsKey(workspaceId) })
+      invalidateOnboarding(queryClient)
+    },
   })
 }
 

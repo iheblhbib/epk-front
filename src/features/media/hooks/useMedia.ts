@@ -6,6 +6,7 @@ import {
   uploadMedia,
   type MediaListParams,
 } from '@/api/media'
+import { invalidateOnboarding } from '@/features/workspaces/hooks/useWorkspaces'
 
 export const mediaKey = (workspaceId: number, params: MediaListParams = {}) =>
   ['workspaces', workspaceId, 'media', params] as const
@@ -24,7 +25,10 @@ export function useUploadMedia(workspaceId: number) {
   return useMutation({
     mutationFn: ({ files, onProgress }: { files: File[]; onProgress?: (percent: number) => void }) =>
       uploadMedia(workspaceId, files, onProgress),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['workspaces', workspaceId, 'media'] }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['workspaces', workspaceId, 'media'] })
+      invalidateOnboarding(queryClient)
+    },
   })
 }
 

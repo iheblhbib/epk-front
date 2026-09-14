@@ -15,6 +15,7 @@ import {
   type CreateEpkPayload,
   type UpdateEpkPayload,
 } from '@/api/epks'
+import { invalidateOnboarding } from '@/features/workspaces/hooks/useWorkspaces'
 
 export const epksKey = (workspaceId: number) => ['workspaces', workspaceId, 'epks'] as const
 export const epkKey = (epkId: number) => ['epks', epkId] as const
@@ -41,7 +42,10 @@ export function useCreateEpk(workspaceId: number) {
 
   return useMutation({
     mutationFn: (payload: CreateEpkPayload) => createEpk(payload),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: epksKey(workspaceId) }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: epksKey(workspaceId) })
+      invalidateOnboarding(queryClient)
+    },
   })
 }
 
@@ -78,7 +82,10 @@ export function usePublishEpk(workspaceId: number) {
 
   return useMutation({
     mutationFn: publishEpk,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: epksKey(workspaceId) }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: epksKey(workspaceId) })
+      invalidateOnboarding(queryClient)
+    },
   })
 }
 
@@ -87,7 +94,10 @@ export function useUnpublishEpk(workspaceId: number) {
 
   return useMutation({
     mutationFn: unpublishEpk,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: epksKey(workspaceId) }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: epksKey(workspaceId) })
+      invalidateOnboarding(queryClient)
+    },
   })
 }
 
@@ -107,6 +117,7 @@ export function useSetEpkCustomDomain(epkId: number) {
     onSuccess: (setup) => {
       queryClient.invalidateQueries({ queryKey: epkKey(epkId) })
       queryClient.setQueryData(epkCustomDomainKey(epkId), setup)
+      invalidateOnboarding(queryClient)
     },
   })
 }
@@ -119,6 +130,7 @@ export function useVerifyEpkCustomDomain(epkId: number) {
     onSuccess: (setup) => {
       queryClient.invalidateQueries({ queryKey: epkKey(epkId) })
       queryClient.setQueryData(epkCustomDomainKey(epkId), setup)
+      invalidateOnboarding(queryClient)
     },
   })
 }
@@ -131,6 +143,7 @@ export function useRemoveEpkCustomDomain(epkId: number) {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: epkKey(epkId) })
       queryClient.setQueryData(epkCustomDomainKey(epkId), null)
+      invalidateOnboarding(queryClient)
     },
   })
 }

@@ -1,4 +1,4 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient, type QueryClient } from '@tanstack/react-query'
 import {
   acceptInvitation,
   createWorkspace,
@@ -25,6 +25,22 @@ import type { WorkspaceRole } from '@/types'
 
 export const workspacesKey = ['workspaces'] as const
 export const workspaceMembersKey = (workspaceId: number) => ['workspaces', workspaceId, 'members'] as const
+export const onboardingKey = (workspaceId: number) => ['workspaces', workspaceId, 'onboarding'] as const
+
+/**
+ * Steps on the onboarding checklist are computed from data that lives under
+ * several unrelated features (artists, epks, contacts, media, private
+ * links...). Rather than have every one of those mutations import
+ * onboardingKey and thread a workspaceId through hooks that don't otherwise
+ * need one (e.g. the epk-id-scoped private link / custom domain mutations),
+ * this predicate invalidates the onboarding query for whichever workspace(s)
+ * are currently cached.
+ */
+export function invalidateOnboarding(queryClient: QueryClient) {
+  queryClient.invalidateQueries({
+    predicate: (query) => query.queryKey[0] === 'workspaces' && query.queryKey[2] === 'onboarding',
+  })
+}
 
 export function useWorkspaces() {
   return useQuery({ queryKey: workspacesKey, queryFn: listWorkspaces })
@@ -123,7 +139,7 @@ export function useRemoveWorkspaceMember(workspaceId: number) {
 
 export function useWorkspaceOnboarding(workspaceId: number | undefined) {
   return useQuery({
-    queryKey: ['workspaces', workspaceId ?? 0, 'onboarding'] as const,
+    queryKey: onboardingKey(workspaceId ?? 0),
     queryFn: () => getWorkspaceOnboarding(workspaceId as number),
     enabled: workspaceId !== undefined,
   })
