@@ -1226,6 +1226,17 @@
       "title": "Top-performing EPK",
       "viewCount_one": "{{count}} view this period",
       "viewCount_other": "{{count}} views this period"
+    },
+    "onboarding": {
+      "title": "Getting started",
+      "dismiss": "Dismiss",
+      "steps": {
+        "createArtist": "Create your first artist",
+        "createEpk": "Create your first EPK",
+        "customizeLogo": "Customize your workspace logo",
+        "inviteMember": "Invite a team member",
+        "publishEpk": "Publish your EPK"
+      }
     }
   },
   "notFound": {
@@ -1319,6 +1330,8 @@
     "next": "Next",
     "search": "Search",
     "actions": "Actions",
+    "expand": "Expand",
+    "collapse": "Collapse",
     "viewOnlyAccess": "You have view-only access to this workspace.",
     "noWorkspaceYet": "No workspace yet",
     "roles": {

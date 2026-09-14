@@ -50,6 +50,14 @@ export interface Workspace {
   updated_at: string
 }
 
+export interface WorkspaceOnboarding {
+  create_artist: boolean
+  create_epk: boolean
+  customize_logo: boolean
+  invite_member: boolean
+  publish_epk: boolean
+}
+
 export interface WorkspaceMember {
   id: number
   role: WorkspaceRole

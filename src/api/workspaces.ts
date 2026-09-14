@@ -6,6 +6,7 @@ import type {
   Workspace,
   WorkspaceActivityLogEntry,
   WorkspaceMember,
+  WorkspaceOnboarding,
   WorkspaceRole,
 } from '@/types'
 
@@ -81,6 +82,11 @@ export async function updateWorkspaceMemberRole(
 
 export async function removeWorkspaceMember(workspaceId: number, memberId: number): Promise<void> {
   await apiClient.delete(`/api/workspaces/${workspaceId}/members/${memberId}`)
+}
+
+export async function getWorkspaceOnboarding(workspaceId: number): Promise<WorkspaceOnboarding> {
+  const { data } = await apiClient.get<ApiResource<WorkspaceOnboarding>>(`/api/workspaces/${workspaceId}/onboarding`)
+  return data.data
 }
 
 export async function listWorkspaceActivity(

@@ -7,6 +7,7 @@ import { LoadingSkeleton } from '@/components/common/LoadingSkeleton'
 import { PageViewsChart } from '@/features/analytics/components/PageViewsChart'
 import { useWorkspaceAnalytics } from '@/features/analytics/hooks/useAnalytics'
 import { DashboardActivityFeed } from '@/features/dashboard/components/DashboardActivityFeed'
+import { OnboardingChecklist } from '@/features/dashboard/components/OnboardingChecklist'
 import { TopEpkCard } from '@/features/dashboard/components/TopEpkCard'
 import { EpkFormDialog } from '@/features/epks/components/EpkFormDialog'
 import { useEpks } from '@/features/epks/hooks/useEpks'
@@ -64,6 +65,8 @@ export function DashboardHome() {
           {t('dashboard.whatsHappening', { workspace: currentWorkspace.name })}
         </p>
       </div>
+
+      <OnboardingChecklist workspaceId={currentWorkspace.id} />
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         {stats.map((stat) => (

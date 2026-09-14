@@ -1226,6 +1226,17 @@
       "title": "Bestes EPK",
       "viewCount_one": "{{count}} Aufruf in diesem Zeitraum",
       "viewCount_other": "{{count}} Aufrufe in diesem Zeitraum"
+    },
+    "onboarding": {
+      "title": "Erste Schritte",
+      "dismiss": "Verwerfen",
+      "steps": {
+        "createArtist": "Erstelle deinen ersten Künstler",
+        "createEpk": "Erstelle dein erstes EPK",
+        "customizeLogo": "Passe das Workspace-Logo an",
+        "inviteMember": "Lade ein Teammitglied ein",
+        "publishEpk": "Veröffentliche dein EPK"
+      }
     }
   },
   "notFound": {
@@ -1319,6 +1330,8 @@
     "next": "Weiter",
     "search": "Suchen",
     "actions": "Aktionen",
+    "expand": "Erweitern",
+    "collapse": "Einklappen",
     "viewOnlyAccess": "Sie haben nur Lesezugriff auf diesen Arbeitsbereich.",
     "noWorkspaceYet": "Noch kein Arbeitsbereich",
     "roles": {

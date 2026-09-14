@@ -1226,6 +1226,17 @@
       "title": "EPK com melhor desempenho",
       "viewCount_one": "{{count}} visualização neste período",
       "viewCount_other": "{{count}} visualizações neste período"
+    },
+    "onboarding": {
+      "title": "Primeiros passos",
+      "dismiss": "Dispensar",
+      "steps": {
+        "createArtist": "Crie seu primeiro artista",
+        "createEpk": "Crie seu primeiro EPK",
+        "customizeLogo": "Personalize o logo do espaço de trabalho",
+        "inviteMember": "Convide um membro da equipe",
+        "publishEpk": "Publique seu EPK"
+      }
     }
   },
   "notFound": {
@@ -1319,6 +1330,8 @@
     "next": "Seguinte",
     "search": "Pesquisar",
     "actions": "Ações",
+    "expand": "Expandir",
+    "collapse": "Recolher",
     "viewOnlyAccess": "Tem acesso apenas de visualização a este espaço de trabalho.",
     "noWorkspaceYet": "Ainda sem espaço de trabalho",
     "roles": {

@@ -1225,6 +1225,17 @@
     "topEpk": {
       "title": "表现最佳的 EPK",
       "viewCount_other": "{{count}} 次浏览（本期）"
+    },
+    "onboarding": {
+      "title": "快速上手",
+      "dismiss": "忽略",
+      "steps": {
+        "createArtist": "创建您的第一位艺人",
+        "createEpk": "创建您的第一份 EPK",
+        "customizeLogo": "自定义工作区徽标",
+        "inviteMember": "邀请团队成员",
+        "publishEpk": "发布您的 EPK"
+      }
     }
   },
   "notFound": {
@@ -1318,6 +1329,8 @@
     "next": "下一步",
     "search": "搜索",
     "actions": "操作",
+    "expand": "展开",
+    "collapse": "收起",
     "viewOnlyAccess": "您在此工作区中拥有只读权限。",
     "noWorkspaceYet": "暂无工作区",
     "roles": {

@@ -5,6 +5,7 @@ import {
   declineInvitation,
   deleteWorkspace,
   deleteWorkspaceLogo,
+  getWorkspaceOnboarding,
   inviteWorkspaceMember,
   leaveWorkspace,
   listPendingInvitations,
@@ -117,6 +118,14 @@ export function useRemoveWorkspaceMember(workspaceId: number) {
   return useMutation({
     mutationFn: (memberId: number) => removeWorkspaceMember(workspaceId, memberId),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: workspaceMembersKey(workspaceId) }),
+  })
+}
+
+export function useWorkspaceOnboarding(workspaceId: number | undefined) {
+  return useQuery({
+    queryKey: ['workspaces', workspaceId ?? 0, 'onboarding'] as const,
+    queryFn: () => getWorkspaceOnboarding(workspaceId as number),
+    enabled: workspaceId !== undefined,
   })
 }
 

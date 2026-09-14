@@ -1226,6 +1226,17 @@
       "title": "أفضل ملف صحفي أداءً",
       "viewCount_one": "{{count}} مشاهدة في هذه الفترة",
       "viewCount_other": "{{count}} مشاهدة في هذه الفترة"
+    },
+    "onboarding": {
+      "title": "ابدأ الآن",
+      "dismiss": "تجاهل",
+      "steps": {
+        "createArtist": "أنشئ أول فنان لديك",
+        "createEpk": "أنشئ أول EPK لديك",
+        "customizeLogo": "خصص شعار مساحة العمل",
+        "inviteMember": "ادعُ عضوًا في الفريق",
+        "publishEpk": "انشر الـ EPK الخاص بك"
+      }
     }
   },
   "notFound": {
@@ -1319,6 +1330,8 @@
     "next": "التالي",
     "search": "بحث",
     "actions": "الإجراءات",
+    "expand": "توسيع",
+    "collapse": "طي",
     "viewOnlyAccess": "لديك إمكانية وصول للعرض فقط في مساحة العمل هذه.",
     "noWorkspaceYet": "لا توجد مساحة عمل بعد",
     "roles": {
