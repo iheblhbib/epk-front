@@ -142,7 +142,7 @@
         "unpaid": "Unbezahlt",
         "canceled": "Gekündigt"
       },
-      "accessEndsAt": "Zugriff endet am {{date}}",
+      "accessEndsAt": "Zugriff endet am {{date}}",
       "expirationLabel": "Zugriffsablauf",
       "expirationUpdateError": "Das Ablaufdatum konnte nicht aktualisiert werden",
       "clearExpiration": "Ablauf löschen"
@@ -946,11 +946,33 @@
       "saveError": "Änderungen konnten nicht gespeichert werden"
     },
     "theme": {
-      "font": { "sans": "Serifenlos", "serif": "Serif", "display": "Display", "mono": "Monospace" },
-      "buttonStyle": { "rounded": "Abgerundet", "pill": "Pillenform", "square": "Eckig" },
-      "radius": { "none": "Keine", "small": "Klein", "medium": "Mittel", "large": "Groß" },
-      "spacing": { "compact": "Kompakt", "comfortable": "Komfortabel", "spacious": "Großzügig" },
-      "headerStyle": { "centered": "Zentriert", "left": "Linksbündig", "minimal": "Minimal" },
+      "font": {
+        "sans": "Serifenlos",
+        "serif": "Serif",
+        "display": "Display",
+        "mono": "Monospace"
+      },
+      "buttonStyle": {
+        "rounded": "Abgerundet",
+        "pill": "Pillenform",
+        "square": "Eckig"
+      },
+      "radius": {
+        "none": "Keine",
+        "small": "Klein",
+        "medium": "Mittel",
+        "large": "Groß"
+      },
+      "spacing": {
+        "compact": "Kompakt",
+        "comfortable": "Komfortabel",
+        "spacious": "Großzügig"
+      },
+      "headerStyle": {
+        "centered": "Zentriert",
+        "left": "Linksbündig",
+        "minimal": "Minimal"
+      },
       "defaultOption": "Standard ({{value}})",
       "reset": "Zurücksetzen",
       "baseTheme": "Basis-Design",
@@ -969,7 +991,11 @@
     "privateLinks": {
       "trigger": "EPK-Links generieren",
       "description": "Teilen Sie diesen EPK mit bestimmten Personen, ohne ihn zu veröffentlichen — funktioniert auch als Entwurf.",
-      "status": { "revoked": "Widerrufen", "expired": "Abgelaufen", "active": "Aktiv" },
+      "status": {
+        "revoked": "Widerrufen",
+        "expired": "Abgelaufen",
+        "active": "Aktiv"
+      },
       "untitledLink": "Link ohne Titel",
       "passwordProtected": "Passwortgeschützt",
       "noPassword": "Kein Passwort",
@@ -1235,7 +1261,17 @@
         "createEpk": "Erstelle dein erstes EPK",
         "customizeLogo": "Passe das Workspace-Logo an",
         "inviteMember": "Lade ein Teammitglied ein",
-        "publishEpk": "Veröffentliche dein EPK"
+        "publishEpk": "Veröffentliche dein EPK",
+        "addContact": "Kontakt hinzufügen",
+        "uploadMedia": "Mediendatei hochladen",
+        "createPrivateLink": "Privaten Freigabelink erstellen",
+        "setupCustomDomain": "Benutzerdefinierte Domain einrichten",
+        "viewAnalytics": "Erste Statistiken ansehen"
+      },
+      "groups": {
+        "workspaceSetup": "Richte deinen Workspace ein",
+        "createEpk": "Erstelle dein erstes EPK",
+        "shareAndGrow": "Teile und verfolge deine Ergebnisse"
       }
     }
   },

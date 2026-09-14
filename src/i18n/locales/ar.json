@@ -142,7 +142,7 @@
         "unpaid": "غير مدفوع",
         "canceled": "ملغى"
       },
-      "accessEndsAt": "ينتهي الوصول في {{date}}",
+      "accessEndsAt": "ينتهي الوصول في {{date}}",
       "expirationLabel": "انتهاء صلاحية الوصول",
       "expirationUpdateError": "تعذر تحديث تاريخ انتهاء الصلاحية",
       "clearExpiration": "مسح تاريخ الانتهاء"
@@ -946,11 +946,33 @@
       "saveError": "تعذّر حفظ التغييرات"
     },
     "theme": {
-      "font": { "sans": "بلا زوائد", "serif": "ذات زوائد", "display": "عرض", "mono": "أحادية المسافة" },
-      "buttonStyle": { "rounded": "مستدير", "pill": "بيضاوي", "square": "مربع" },
-      "radius": { "none": "بدون", "small": "صغير", "medium": "متوسط", "large": "كبير" },
-      "spacing": { "compact": "مضغوط", "comfortable": "مريح", "spacious": "واسع" },
-      "headerStyle": { "centered": "في المنتصف", "left": "محاذاة لليسار", "minimal": "بسيط" },
+      "font": {
+        "sans": "بلا زوائد",
+        "serif": "ذات زوائد",
+        "display": "عرض",
+        "mono": "أحادية المسافة"
+      },
+      "buttonStyle": {
+        "rounded": "مستدير",
+        "pill": "بيضاوي",
+        "square": "مربع"
+      },
+      "radius": {
+        "none": "بدون",
+        "small": "صغير",
+        "medium": "متوسط",
+        "large": "كبير"
+      },
+      "spacing": {
+        "compact": "مضغوط",
+        "comfortable": "مريح",
+        "spacious": "واسع"
+      },
+      "headerStyle": {
+        "centered": "في المنتصف",
+        "left": "محاذاة لليسار",
+        "minimal": "بسيط"
+      },
       "defaultOption": "افتراضي ({{value}})",
       "reset": "إعادة التعيين",
       "baseTheme": "التصميم الأساسي",
@@ -969,7 +991,11 @@
     "privateLinks": {
       "trigger": "إنشاء روابط EPK",
       "description": "شارك هذا الملف الصحفي مع أشخاص محددين دون نشره — يعمل حتى وهو مسودة.",
-      "status": { "revoked": "مُلغى", "expired": "منتهي الصلاحية", "active": "نشط" },
+      "status": {
+        "revoked": "مُلغى",
+        "expired": "منتهي الصلاحية",
+        "active": "نشط"
+      },
       "untitledLink": "رابط بلا عنوان",
       "passwordProtected": "محمي بكلمة مرور",
       "noPassword": "بدون كلمة مرور",
@@ -1235,7 +1261,17 @@
         "createEpk": "أنشئ أول EPK لديك",
         "customizeLogo": "خصص شعار مساحة العمل",
         "inviteMember": "ادعُ عضوًا في الفريق",
-        "publishEpk": "انشر الـ EPK الخاص بك"
+        "publishEpk": "انشر الـ EPK الخاص بك",
+        "addContact": "أضف جهة اتصال",
+        "uploadMedia": "ارفع ملف وسائط",
+        "createPrivateLink": "أنشئ رابط مشاركة خاص",
+        "setupCustomDomain": "أعد إعداد نطاق مخصص",
+        "viewAnalytics": "اطّلع على إحصاءاتك الأولى"
+      },
+      "groups": {
+        "workspaceSetup": "إعداد مساحة العمل",
+        "createEpk": "أنشئ أول EPK لديك",
+        "shareAndGrow": "شارك وتابع نتائجك"
       }
     }
   },

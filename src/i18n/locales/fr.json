@@ -142,7 +142,7 @@
         "unpaid": "Non payé",
         "canceled": "Résilié"
       },
-      "accessEndsAt": "Accès jusqu'au {{date}}",
+      "accessEndsAt": "Accès jusqu'au {{date}}",
       "expirationLabel": "Expiration de l'accès",
       "expirationUpdateError": "Impossible de mettre à jour la date d'expiration",
       "clearExpiration": "Effacer l'expiration"
@@ -946,11 +946,33 @@
       "saveError": "Impossible d'enregistrer les modifications"
     },
     "theme": {
-      "font": { "sans": "Sans-serif", "serif": "Serif", "display": "Display", "mono": "Monospace" },
-      "buttonStyle": { "rounded": "Arrondi", "pill": "Pilule", "square": "Carré" },
-      "radius": { "none": "Aucun", "small": "Petit", "medium": "Moyen", "large": "Grand" },
-      "spacing": { "compact": "Compact", "comfortable": "Confortable", "spacious": "Spacieux" },
-      "headerStyle": { "centered": "Centré", "left": "Aligné à gauche", "minimal": "Minimal" },
+      "font": {
+        "sans": "Sans-serif",
+        "serif": "Serif",
+        "display": "Display",
+        "mono": "Monospace"
+      },
+      "buttonStyle": {
+        "rounded": "Arrondi",
+        "pill": "Pilule",
+        "square": "Carré"
+      },
+      "radius": {
+        "none": "Aucun",
+        "small": "Petit",
+        "medium": "Moyen",
+        "large": "Grand"
+      },
+      "spacing": {
+        "compact": "Compact",
+        "comfortable": "Confortable",
+        "spacious": "Spacieux"
+      },
+      "headerStyle": {
+        "centered": "Centré",
+        "left": "Aligné à gauche",
+        "minimal": "Minimal"
+      },
       "defaultOption": "Par défaut ({{value}})",
       "reset": "Réinitialiser",
       "baseTheme": "Thème de base",
@@ -969,7 +991,11 @@
     "privateLinks": {
       "trigger": "Générer les liens de l'EPK",
       "description": "Partagez cet EPK avec des personnes précises sans le publier — fonctionne même en brouillon.",
-      "status": { "revoked": "Révoqué", "expired": "Expiré", "active": "Actif" },
+      "status": {
+        "revoked": "Révoqué",
+        "expired": "Expiré",
+        "active": "Actif"
+      },
       "untitledLink": "Lien sans titre",
       "passwordProtected": "Protégé par mot de passe",
       "noPassword": "Sans mot de passe",
@@ -1235,7 +1261,17 @@
         "createEpk": "Créez votre premier EPK",
         "customizeLogo": "Personnalisez le logo de l'espace de travail",
         "inviteMember": "Invitez un membre de l’équipe",
-        "publishEpk": "Publiez votre EPK"
+        "publishEpk": "Publiez votre EPK",
+        "addContact": "Ajoutez un contact",
+        "uploadMedia": "Ajoutez un média à votre bibliothèque",
+        "createPrivateLink": "Créez un lien de partage privé",
+        "setupCustomDomain": "Configurez un domaine personnalisé",
+        "viewAnalytics": "Consultez vos premières statistiques"
+      },
+      "groups": {
+        "workspaceSetup": "Configurez votre espace de travail",
+        "createEpk": "Créez votre premier EPK",
+        "shareAndGrow": "Partagez et suivez vos résultats"
       }
     }
   },

@@ -56,6 +56,11 @@ export interface WorkspaceOnboarding {
   customize_logo: boolean
   invite_member: boolean
   publish_epk: boolean
+  add_contact: boolean
+  upload_media: boolean
+  create_private_link: boolean
+  setup_custom_domain: boolean
+  view_analytics: boolean
 }
 
 export interface WorkspaceMember {

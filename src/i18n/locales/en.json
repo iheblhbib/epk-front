@@ -142,7 +142,7 @@
         "unpaid": "Unpaid",
         "canceled": "Canceled"
       },
-      "accessEndsAt": "Access ends {{date}}",
+      "accessEndsAt": "Access ends {{date}}",
       "expirationLabel": "Access expiration",
       "expirationUpdateError": "Could not update the expiration date",
       "clearExpiration": "Clear expiration"
@@ -946,11 +946,33 @@
       "saveError": "Could not save changes"
     },
     "theme": {
-      "font": { "sans": "Sans", "serif": "Serif", "display": "Display", "mono": "Mono" },
-      "buttonStyle": { "rounded": "Rounded", "pill": "Pill", "square": "Square" },
-      "radius": { "none": "None", "small": "Small", "medium": "Medium", "large": "Large" },
-      "spacing": { "compact": "Compact", "comfortable": "Comfortable", "spacious": "Spacious" },
-      "headerStyle": { "centered": "Centered", "left": "Left-aligned", "minimal": "Minimal" },
+      "font": {
+        "sans": "Sans",
+        "serif": "Serif",
+        "display": "Display",
+        "mono": "Mono"
+      },
+      "buttonStyle": {
+        "rounded": "Rounded",
+        "pill": "Pill",
+        "square": "Square"
+      },
+      "radius": {
+        "none": "None",
+        "small": "Small",
+        "medium": "Medium",
+        "large": "Large"
+      },
+      "spacing": {
+        "compact": "Compact",
+        "comfortable": "Comfortable",
+        "spacious": "Spacious"
+      },
+      "headerStyle": {
+        "centered": "Centered",
+        "left": "Left-aligned",
+        "minimal": "Minimal"
+      },
       "defaultOption": "Default ({{value}})",
       "reset": "Reset",
       "baseTheme": "Base theme",
@@ -969,7 +991,11 @@
     "privateLinks": {
       "trigger": "Generate EPK Links",
       "description": "Share this EPK with specific people without publishing it — works even while it's still a draft.",
-      "status": { "revoked": "Revoked", "expired": "Expired", "active": "Active" },
+      "status": {
+        "revoked": "Revoked",
+        "expired": "Expired",
+        "active": "Active"
+      },
       "untitledLink": "Untitled link",
       "passwordProtected": "Password-protected",
       "noPassword": "No password",
@@ -1235,7 +1261,17 @@
         "createEpk": "Create your first EPK",
         "customizeLogo": "Customize your workspace logo",
         "inviteMember": "Invite a team member",
-        "publishEpk": "Publish your EPK"
+        "publishEpk": "Publish your EPK",
+        "addContact": "Add a contact",
+        "uploadMedia": "Upload a media file",
+        "createPrivateLink": "Create a private share link",
+        "setupCustomDomain": "Set up a custom domain",
+        "viewAnalytics": "See your first analytics"
+      },
+      "groups": {
+        "workspaceSetup": "Set up your workspace",
+        "createEpk": "Create your first EPK",
+        "shareAndGrow": "Share and track your results"
       }
     }
   },

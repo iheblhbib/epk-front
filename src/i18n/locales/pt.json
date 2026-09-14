@@ -142,7 +142,7 @@
         "unpaid": "Não pago",
         "canceled": "Cancelado"
       },
-      "accessEndsAt": "O acesso termina em {{date}}",
+      "accessEndsAt": "O acesso termina em {{date}}",
       "expirationLabel": "Expiração do acesso",
       "expirationUpdateError": "Não foi possível atualizar a data de expiração",
       "clearExpiration": "Limpar expiração"
@@ -946,11 +946,33 @@
       "saveError": "Não foi possível guardar as alterações"
     },
     "theme": {
-      "font": { "sans": "Sans", "serif": "Serif", "display": "Display", "mono": "Mono" },
-      "buttonStyle": { "rounded": "Arredondado", "pill": "Pílula", "square": "Quadrado" },
-      "radius": { "none": "Nenhum", "small": "Pequeno", "medium": "Médio", "large": "Grande" },
-      "spacing": { "compact": "Compacto", "comfortable": "Confortável", "spacious": "Espaçoso" },
-      "headerStyle": { "centered": "Centrado", "left": "Alinhado à esquerda", "minimal": "Minimalista" },
+      "font": {
+        "sans": "Sans",
+        "serif": "Serif",
+        "display": "Display",
+        "mono": "Mono"
+      },
+      "buttonStyle": {
+        "rounded": "Arredondado",
+        "pill": "Pílula",
+        "square": "Quadrado"
+      },
+      "radius": {
+        "none": "Nenhum",
+        "small": "Pequeno",
+        "medium": "Médio",
+        "large": "Grande"
+      },
+      "spacing": {
+        "compact": "Compacto",
+        "comfortable": "Confortável",
+        "spacious": "Espaçoso"
+      },
+      "headerStyle": {
+        "centered": "Centrado",
+        "left": "Alinhado à esquerda",
+        "minimal": "Minimalista"
+      },
       "defaultOption": "Predefinido ({{value}})",
       "reset": "Repor",
       "baseTheme": "Tema base",
@@ -969,7 +991,11 @@
     "privateLinks": {
       "trigger": "Gerar links do EPK",
       "description": "Partilhe este EPK com pessoas específicas sem o publicar — funciona mesmo enquanto ainda é um rascunho.",
-      "status": { "revoked": "Revogado", "expired": "Expirado", "active": "Ativo" },
+      "status": {
+        "revoked": "Revogado",
+        "expired": "Expirado",
+        "active": "Ativo"
+      },
       "untitledLink": "Link sem título",
       "passwordProtected": "Protegido por palavra-passe",
       "noPassword": "Sem palavra-passe",
@@ -1235,7 +1261,17 @@
         "createEpk": "Crie seu primeiro EPK",
         "customizeLogo": "Personalize o logo do espaço de trabalho",
         "inviteMember": "Convide um membro da equipe",
-        "publishEpk": "Publique seu EPK"
+        "publishEpk": "Publique seu EPK",
+        "addContact": "Adicione um contato",
+        "uploadMedia": "Envie um arquivo de mídia",
+        "createPrivateLink": "Crie um link de compartilhamento privado",
+        "setupCustomDomain": "Configure um domínio personalizado",
+        "viewAnalytics": "Veja suas primeiras estatísticas"
+      },
+      "groups": {
+        "workspaceSetup": "Configure seu espaço de trabalho",
+        "createEpk": "Crie seu primeiro EPK",
+        "shareAndGrow": "Compartilhe e acompanhe seus resultados"
       }
     }
   },

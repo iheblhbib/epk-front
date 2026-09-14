@@ -142,7 +142,7 @@
         "unpaid": "未付款",
         "canceled": "已取消"
       },
-      "accessEndsAt": "访问权限将于 {{date}} 结束",
+      "accessEndsAt": "访问权限将于 {{date}} 结束",
       "expirationLabel": "访问过期时间",
       "expirationUpdateError": "无法更新过期日期",
       "clearExpiration": "清除过期时间"
@@ -946,11 +946,33 @@
       "saveError": "无法保存更改"
     },
     "theme": {
-      "font": { "sans": "无衬线", "serif": "衬线", "display": "展示字体", "mono": "等宽" },
-      "buttonStyle": { "rounded": "圆角", "pill": "胶囊形", "square": "直角" },
-      "radius": { "none": "无", "small": "小", "medium": "中", "large": "大" },
-      "spacing": { "compact": "紧凑", "comfortable": "舒适", "spacious": "宽松" },
-      "headerStyle": { "centered": "居中", "left": "左对齐", "minimal": "简约" },
+      "font": {
+        "sans": "无衬线",
+        "serif": "衬线",
+        "display": "展示字体",
+        "mono": "等宽"
+      },
+      "buttonStyle": {
+        "rounded": "圆角",
+        "pill": "胶囊形",
+        "square": "直角"
+      },
+      "radius": {
+        "none": "无",
+        "small": "小",
+        "medium": "中",
+        "large": "大"
+      },
+      "spacing": {
+        "compact": "紧凑",
+        "comfortable": "舒适",
+        "spacious": "宽松"
+      },
+      "headerStyle": {
+        "centered": "居中",
+        "left": "左对齐",
+        "minimal": "简约"
+      },
       "defaultOption": "默认（{{value}}）",
       "reset": "重置",
       "baseTheme": "基础主题",
@@ -969,7 +991,11 @@
     "privateLinks": {
       "trigger": "生成 EPK 链接",
       "description": "在不发布的情况下与特定人员分享此 EPK — 即使仍是草稿也可使用。",
-      "status": { "revoked": "已撤销", "expired": "已过期", "active": "有效" },
+      "status": {
+        "revoked": "已撤销",
+        "expired": "已过期",
+        "active": "有效"
+      },
       "untitledLink": "未命名链接",
       "passwordProtected": "已设密码保护",
       "noPassword": "无密码",
@@ -1234,7 +1260,17 @@
         "createEpk": "创建您的第一份 EPK",
         "customizeLogo": "自定义工作区徽标",
         "inviteMember": "邀请团队成员",
-        "publishEpk": "发布您的 EPK"
+        "publishEpk": "发布您的 EPK",
+        "addContact": "添加联系人",
+        "uploadMedia": "上传媒体文件",
+        "createPrivateLink": "创建私密分享链接",
+        "setupCustomDomain": "设置自定义域名",
+        "viewAnalytics": "查看您的首次分析数据"
+      },
+      "groups": {
+        "workspaceSetup": "设置您的工作区",
+        "createEpk": "创建您的第一份 EPK",
+        "shareAndGrow": "分享并跟踪您的成果"
       }
     }
   },
