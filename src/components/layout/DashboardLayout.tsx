@@ -1,8 +1,12 @@
 import { Outlet } from 'react-router-dom'
 import { Sidebar } from '@/components/layout/Sidebar'
 import { Topbar } from '@/components/layout/Topbar'
+import { OnboardingChecklist } from '@/features/dashboard/components/OnboardingChecklist'
+import { useCurrentWorkspace } from '@/features/workspaces/hooks/useCurrentWorkspace'
 
 export function DashboardLayout() {
+  const { currentWorkspace } = useCurrentWorkspace()
+
   return (
     <div className="flex h-screen bg-background">
       <Sidebar />
@@ -12,6 +16,7 @@ export function DashboardLayout() {
           <Outlet />
         </main>
       </div>
+      {currentWorkspace && <OnboardingChecklist workspaceId={currentWorkspace.id} />}
     </div>
   )
 }
