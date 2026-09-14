@@ -94,6 +94,9 @@ export function WorkspaceSwitcher() {
             />
           }
         >
+          {currentWorkspace && (
+            <WorkspaceAvatar id={currentWorkspace.id} name={currentWorkspace.name} logoUrl={currentWorkspace.logo_url} />
+          )}
           <span className="truncate">{currentWorkspace?.name ?? t('workspaces.selectWorkspace')}</span>
           <ChevronsUpDown className="size-3.5 text-muted-foreground" />
         </DropdownMenuTrigger>

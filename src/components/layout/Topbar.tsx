@@ -56,12 +56,19 @@ export function Topbar() {
         <NotificationBell />
         <ThemeToggle />
         <DropdownMenu>
-        <DropdownMenuTrigger className="flex items-center gap-2 rounded-full outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
-          <Avatar className="size-8">
-            <AvatarFallback className="bg-primary/10 text-xs font-medium text-primary">
-              {user ? initials(user.name) : '?'}
-            </AvatarFallback>
-          </Avatar>
+        <DropdownMenuTrigger
+          aria-label={user?.name}
+          className="flex items-center gap-2 rounded-full outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+        >
+          {user?.avatar_url ? (
+            <img src={user.avatar_url} alt={user.name} className="size-8 shrink-0 rounded-full object-cover" />
+          ) : (
+            <Avatar className="size-8">
+              <AvatarFallback className="bg-primary/10 text-xs font-medium text-primary">
+                {user ? initials(user.name) : '?'}
+              </AvatarFallback>
+            </Avatar>
+          )}
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-56">
           <DropdownMenuGroup>

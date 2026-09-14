@@ -39,6 +39,23 @@ function renderSwitcher() {
 }
 
 describe('WorkspaceSwitcher', () => {
+  it('shows the current workspace logo on the trigger button itself, not just inside the open menu', async () => {
+    server.use(
+      http.get(`${API_URL}/api/workspaces`, () =>
+        HttpResponse.json({
+          data: [
+            { id: 1, name: 'Acme Records', slug: 'acme', description: null, logo_url: 'https://example.com/logo.webp', my_role: 'owner', members_count: 3, created_at: '', updated_at: '' },
+          ],
+        })
+      ),
+      http.get(`${API_URL}/api/invitations`, () => HttpResponse.json({ data: [] }))
+    )
+    renderSwitcher()
+
+    const trigger = await screen.findByRole('button', { name: /acme records/i })
+    expect(within(trigger).getByRole('img', { name: 'Acme Records' })).toHaveAttribute('src', 'https://example.com/logo.webp')
+  })
+
   it('shows a role badge for each workspace', async () => {
     mockBaseline()
     const user = userEvent.setup()
