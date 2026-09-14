@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { useWorkspaceOnboarding } from '@/features/workspaces/hooks/useWorkspaces'
 import type { WorkspaceOnboarding } from '@/types'
 
@@ -36,15 +35,10 @@ export function OnboardingChecklist({ workspaceId }: { workspaceId: number }) {
   }
 
   return (
-    <Card>
-      <CardHeader className="flex-row items-center justify-between space-y-0">
-        <div className="flex items-center gap-2">
-          <h2 className="font-heading text-base font-semibold text-foreground">{t('dashboard.onboarding.title')}</h2>
-          <span className="text-sm text-muted-foreground">
-            {doneCount}/{STEPS.length}
-          </span>
-        </div>
-        <div className="flex items-center gap-1">
+    <div className="fixed bottom-4 end-4 z-40 w-80 max-w-[calc(100vw-2rem)] overflow-hidden rounded-xl border border-border bg-card shadow-lg">
+      <div className="flex items-center justify-between gap-2 px-4 pt-3.5">
+        <h2 className="font-heading text-sm font-semibold text-foreground">{t('dashboard.onboarding.title')}</h2>
+        <div className="-me-1.5 flex items-center gap-0.5">
           <Button
             variant="ghost"
             size="icon-sm"
@@ -57,14 +51,29 @@ export function OnboardingChecklist({ workspaceId }: { workspaceId: number }) {
             <X className="size-4" />
           </Button>
         </div>
-      </CardHeader>
+      </div>
+
+      <div
+        role="progressbar"
+        aria-label={t('dashboard.onboarding.title')}
+        aria-valuenow={doneCount}
+        aria-valuemin={0}
+        aria-valuemax={STEPS.length}
+        className="mx-4 mt-3 h-1.5 overflow-hidden rounded-full bg-muted"
+      >
+        <div
+          className="h-full rounded-full bg-primary transition-all"
+          style={{ width: `${(doneCount / STEPS.length) * 100}%` }}
+        />
+      </div>
+
       {!collapsed && (
-        <CardContent className="space-y-1">
+        <div className="space-y-0.5 px-2.5 py-3">
           {STEPS.map((step) => {
             const done = data[step.key]
 
             return (
-              <div key={step.key} className="flex items-center gap-2.5 py-1">
+              <div key={step.key} className="flex items-center gap-2.5 rounded-md px-1.5 py-1.5">
                 <span
                   className={`flex size-5 shrink-0 items-center justify-center rounded-full border ${done ? 'border-primary bg-primary text-primary-foreground' : 'border-input'}`}
                 >
@@ -80,8 +89,8 @@ export function OnboardingChecklist({ workspaceId }: { workspaceId: number }) {
               </div>
             )
           })}
-        </CardContent>
+        </div>
       )}
-    </Card>
+    </div>
   )
 }

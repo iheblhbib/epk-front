@@ -38,11 +38,13 @@ describe('OnboardingChecklist', () => {
     localStorage.clear()
   })
 
-  it('shows the incomplete-step count and lists all 5 steps', async () => {
+  it('shows a progress bar reflecting completed steps and lists all 5 steps', async () => {
     server.use(http.get(`${API_URL}/api/workspaces/1/onboarding`, () => HttpResponse.json(onboardingResponse())))
     renderChecklist()
 
-    expect(await screen.findByText('0/5')).toBeInTheDocument()
+    const progressbar = await screen.findByRole('progressbar')
+    expect(progressbar).toHaveAttribute('aria-valuenow', '0')
+    expect(progressbar).toHaveAttribute('aria-valuemax', '5')
     expect(screen.getByText(/create your first artist/i)).toBeInTheDocument()
     expect(screen.getByText(/create your first epk/i)).toBeInTheDocument()
     expect(screen.getByText(/customize your workspace logo/i)).toBeInTheDocument()
@@ -58,7 +60,7 @@ describe('OnboardingChecklist', () => {
     )
     renderChecklist()
 
-    await screen.findByText('1/5')
+    await waitFor(() => expect(screen.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '1'))
     expect(screen.queryByRole('link', { name: /create your first artist/i })).not.toBeInTheDocument()
     expect(screen.getByRole('link', { name: /create your first epk/i })).toHaveAttribute('href', '/epks')
   })
@@ -87,7 +89,7 @@ describe('OnboardingChecklist', () => {
     const user = userEvent.setup()
     const { container } = renderChecklist()
 
-    await screen.findByText('0/5')
+    await screen.findByRole('progressbar')
     await user.click(screen.getByRole('button', { name: /dismiss/i }))
 
     await waitFor(() => expect(container).toBeEmptyDOMElement())
