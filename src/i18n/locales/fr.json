@@ -204,7 +204,7 @@
   "auth": {
     "login": {
       "title": "Bon retour",
-      "description": "Connectez-vous pour gérer vos dossiers de presse",
+      "description": "Connectez-vous pour gérer vos dossiers de press",
       "email": "E-mail",
       "password": "Mot de passe",
       "forgotPassword": "Mot de passe oublié ?",
@@ -225,7 +225,7 @@
     },
     "register": {
       "title": "Créez votre compte",
-      "description": "Commencez à créer votre dossier de presse en quelques minutes",
+      "description": "Commencez à créer votre dossier de press en quelques minutes",
       "alreadyHaveAccount": "Vous avez déjà un compte ?",
       "signIn": "Se connecter",
       "name": "Nom",
@@ -311,7 +311,7 @@
       "shortBio": "Bio courte",
       "website": "Site web",
       "bookingEmail": "E-mail booking",
-      "pressEmail": "E-mail presse",
+      "pressEmail": "E-mail press",
       "managementEmail": "E-mail management",
       "location": "Lieu",
       "epks": "EPK"
@@ -339,7 +339,7 @@
     "dialog": {
       "editTitle": "Modifier le contact",
       "addTitle": "Ajouter un contact",
-      "description": "Journalistes, radios, blogs, labels et toute autre personne avec qui vous travaillez sur la presse et la promotion."
+      "description": "Journalistes, radios, blogs, labels et toute autre personne avec qui vous travaillez sur la press et la promotion."
     },
     "fields": {
       "name": "Nom",
@@ -368,7 +368,7 @@
       "deleteError": "Impossible de supprimer le contact"
     },
     "allCategories": "Toutes les catégories",
-    "pageDescription": "Journalistes, radios, blogs et toute autre personne avec qui vous travaillez sur la presse et la promotion.",
+    "pageDescription": "Journalistes, radios, blogs et toute autre personne avec qui vous travaillez sur la press et la promotion.",
     "searchPlaceholder": "Rechercher un nom, e-mail, organisation…",
     "deleteDialog": {
       "title": "Supprimer le contact",
@@ -444,7 +444,7 @@
     "duplicate": "Dupliquer",
     "noArtist": "Aucun artiste",
     "builder": "Éditeur",
-    "pageDescription": "Gérez les dossiers de presse de {{workspace}}.",
+    "pageDescription": "Gérez les dossiers de press de {{workspace}}.",
     "deleteDialog": {
       "title": "Supprimer l'EPK",
       "description": "« {{title}} » sera définitivement supprimé."
@@ -452,8 +452,8 @@
     "emptyState": {
       "noWorkspaceDescription": "Créez un espace de travail depuis le tableau de bord avant d'ajouter des EPK.",
       "noneTitle": "Aucun EPK pour le moment",
-      "canEditDescription": "Créez votre premier dossier de presse pour commencer. L'éditeur visuel de sections et de thèmes arrive dans une phase ultérieure.",
-      "viewOnlyDescription": "Aucun dossier de presse n'a encore été créé dans cet espace de travail."
+      "canEditDescription": "Créez votre premier dossier de press pour commencer. L'éditeur visuel de sections et de thèmes arrive dans une phase ultérieure.",
+      "viewOnlyDescription": "Aucun dossier de press n'a encore été créé dans cet espace de travail."
     }
   },
   "settings": {
@@ -609,7 +609,7 @@
       "createdTitle": "Jeton créé",
       "createdDescription": "Copiez ce jeton maintenant — vous ne pourrez plus le revoir.",
       "copy": "Copier",
-      "copied": "Copié dans le presse-papiers"
+      "copied": "Copié dans le press-papiers"
     },
     "twoFactor": {
       "title": "Authentification à deux facteurs",
@@ -885,7 +885,7 @@
     },
     "notFound": {
       "title": "EPK introuvable",
-      "description": "Ce dossier de presse a peut-être été supprimé."
+      "description": "Ce dossier de press a peut-être été supprimé."
     },
     "viewPublicPage": "Voir la page publique",
     "viewPublicPageDisabledTitle": "Publiez cet EPK pour activer sa page publique",
@@ -903,7 +903,7 @@
       "setupError": "Impossible de configurer ce domaine",
       "recordHost": "Hôte",
       "recordValue": "Valeur",
-      "copied": "Copié dans le presse-papiers",
+      "copied": "Copié dans le press-papiers",
       "verified": "Vérifié",
       "pending": "Vérification en attente",
       "verifyDescription": "Ajoutez ces deux enregistrements DNS chez votre fournisseur de domaine, puis vérifiez. Les modifications DNS peuvent prendre du temps à se propager.",
@@ -1044,7 +1044,7 @@
       "noBiography": "Aucune biographie pour le moment.",
       "noSocialLinks": "Aucun lien social ajouté pour le moment.",
       "booking": "Booking",
-      "press": "Presse",
+      "press": "Press",
       "management": "Management",
       "noContactDetails": "Aucune coordonnée pour le moment.",
       "noFilesSelected": "Aucun fichier téléchargeable sélectionné pour le moment.",
@@ -1058,7 +1058,7 @@
       "noFileSelected": "Aucun fichier sélectionné pour le moment.",
       "untitledVideo": "Vidéo sans titre",
       "untitledTrack": "Morceau sans titre",
-      "noPress": "Aucune couverture presse pour le moment.",
+      "noPress": "Aucune couverture press pour le moment.",
       "read": "Lire",
       "noEvents": "Aucun événement pour le moment.",
       "noSectionsEnabled": "Aucune section activée. Ajoutez ou activez une section pour voir l'aperçu."
@@ -1119,7 +1119,7 @@
     },
     "contact": {
       "bookingEmail": "E-mail booking",
-      "pressEmail": "E-mail presse",
+      "pressEmail": "E-mail press",
       "managementEmail": "E-mail management",
       "website": "Site web",
       "phone": "Téléphone",
@@ -1161,12 +1161,12 @@
       "addPhoto": "Ajouter une photo"
     },
     "press": {
-      "label": "Couverture presse",
+      "label": "Couverture press",
       "outletPlaceholder": "Média (ex. Les Inrocks)",
       "quotePlaceholder": "Citation",
       "articleUrlPlaceholder": "URL de l'article (facultatif)",
       "authorPlaceholder": "Auteur (facultatif)",
-      "addMention": "Ajouter une mention presse"
+      "addMention": "Ajouter une mention press"
     },
     "releases": {
       "typeAlbum": "Album",
@@ -1234,7 +1234,7 @@
     "welcomeWithName": "Bienvenue sur KORAXX, {{name}}",
     "welcomeBack": "Bon retour",
     "welcomeBackWithName": "Bon retour, {{name}}",
-    "noWorkspaceDescription": "Créez un espace de travail pour commencer votre premier dossier de presse.",
+    "noWorkspaceDescription": "Créez un espace de travail pour commencer votre premier dossier de press.",
     "createFirstWorkspace": "Créer votre premier espace de travail",
     "createFirstEpk": "Créer votre premier EPK",
     "whatsHappening": "Voici ce qui se passe dans {{workspace}}.",
@@ -1285,7 +1285,7 @@
   },
   "publicEpk": {
     "notAvailable": {
-      "title": "Ce dossier de presse n'est pas disponible",
+      "title": "Ce dossier de press n'est pas disponible",
       "description": "Il a peut-être été dépublié ou le lien est incorrect."
     },
     "readThePiece": "Lire l'article",
@@ -1319,10 +1319,10 @@
   },
   "privateEpk": {
     "passwordGate": {
-      "title": "Ce dossier de presse est protégé par mot de passe",
+      "title": "Ce dossier de press est protégé par mot de passe",
       "description": "Saisissez le mot de passe qui vous a été communiqué pour le consulter.",
       "checking": "Vérification…",
-      "submit": "Voir le dossier de presse"
+      "submit": "Voir le dossier de press"
     },
     "notAvailable": {
       "title": "Ce lien n'est pas disponible",
